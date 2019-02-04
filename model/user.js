@@ -13,3 +13,10 @@ module.exports.findWhere=function(obj, cb){
 		db.collection('user').find(obj).toArray(cb);
 	});
 }
+
+module.exports.updateWhere=function(where, obj, cb){
+	connection.init(function(err, client){
+		var db = client.db(config.dbName);
+		db.collection('user').update(where, {$set : obj}, cb);
+	});
+}

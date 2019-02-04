@@ -27,15 +27,20 @@ router.post("/",
    var m = req.body.mobile;
 	var p = req.body.password;
 user.findWhere( { $and: [ { mobile:m  }, { password:p } ] } , function(err, result){
-		
+		var data={ };
 		if(result.length==0) // rusername incorrect
 		{
-		  
-			res.send(result)
+		    data.responce="unsuccess";
+		    data.result=result;
+		    // console.log(data)
+			res.send(data);
 		}
 		else
-		{
-				res.send(result)
+		{        
+			    data.responce="success";
+		    data.result=result;
+		    // console.log(data)
+				res.send(data)
 
 		}
 	});
