@@ -1,1 +1,1 @@
-module.exports={ dbName : "project" };
+module.exports={ dbName : "waterpro" };

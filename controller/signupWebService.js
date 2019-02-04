@@ -21,6 +21,8 @@ router.post("/",
 
 	,function(req,res){
 
+        
+
 const errors = validationResult(req);
    if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() });
@@ -29,9 +31,9 @@ const errors = validationResult(req);
 
 
 	console.log(req.body)
-	// user.insert(req.body, function(err, result){
+	user.insert(req.body, function(err, result){
 		res.redirect("/login")
-	// });
+	});
 })
 
 module.exports=router;
