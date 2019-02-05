@@ -39,14 +39,14 @@ router.post("/resendotp",function(req,res){
                if (err) {
         // console.log(err);
               } else {
-
+          
         // console.log(responseData);
-          data={ };
-          data.resendotp="resendotp";
-          res.send(data)      
          }
        }
      );
+          data={ };
+          data.resendotp="resendotp";
+          res.send(data)      
 
 
 	})
