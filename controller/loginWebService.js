@@ -23,25 +23,30 @@ router.post("/",
     
      
 
-
+   
    var m = req.body.mobile;
 	var p = req.body.password;
 user.findWhere( { $and: [ { mobile:m  }, { password:p } ] } , function(err, result){
 		var data={ };
 		if(result.length==0) // rusername incorrect
 		{
-		    data.responce="unsuccess";
+		    data.response="unsuccess";
 		    data.result=result;
 		    // console.log(data)
 			res.send(data);
 		}
 		else
-		{        
-			    data.responce="success";
+		{   
+			
+		   if(result[0].otpstatus){     
+			data.response="success";
 		    data.result=result;
 		    // console.log(data)
 				res.send(data)
-
+           }else{
+           	data.response="please submit otp";
+           	res.send(data)
+           }
 		}
 	});
 
