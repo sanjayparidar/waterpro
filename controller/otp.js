@@ -28,11 +28,11 @@ router.post("/resendotp",function(req,res){
 	console.log("hello")
 	user.findWhere({_id:Mongo.ObjectId(req.body.id)},function(err,result){
 		var result=result[0];
-    
+
 
         var random=Math.floor(Math.random() *10000)+1000;
         result.otp=random.toString();
-        console.log(result)
+        // console.log(result)
         var mobilenumber="91"+result.mobile;
         const nexmo = new Nexmo({
             apiKey: "76c0446d",apiSecret: "cnGkIdULJerMTR47"
@@ -47,7 +47,7 @@ router.post("/resendotp",function(req,res){
        }
      );
           user.updateWhere({_id:Mongo.ObjectId(req.body.id)},result,function(err,result){
-
+            
           })
           data={ };
           data.resendotp="resendotp";
