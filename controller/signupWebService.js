@@ -49,36 +49,19 @@ router.post("/",
               } else {
 
         // console.log(responseData);
+          user.insert(req.body, function(err, result){
+          res.send(result.ops)
+          });
          }
        }
      );
 
-          user.insert(req.body, function(err, result){
-          res.send(result.ops)
-          });
        }else{
-        res.send("user allredy resister")
+        data={ };
+        data.user="user allredy resister"
        }
      });   
    }
  });
      
-
-
-
- 
-
-
-
-
-        
-    
-                   
-
-
-
-
-
-
-
 module.exports=router;
