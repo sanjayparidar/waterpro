@@ -50,9 +50,9 @@ router.post("/",
 
         // console.log(responseData);
           user.insert(req.body, function(err, result){
-          
+              // console.log(result)
              data.response="success";
-             data.result=result.ops;
+             data.result=result.ops
              res.send(data);
           });
          }
@@ -60,6 +60,7 @@ router.post("/",
      );
 
        }else{
+        console.log("hello")
         data={ };
         data.response="user allredy resister"
         res.send(data)
