@@ -45,10 +45,10 @@ router.post("/",
             });
               nexmo.message.sendSms("919691889808" ,mobilenumber,random,(err, responseData) => {
                if (err) {
-        // console.log(err);
+        console.log(err);
               } else {
 
-        // console.log(responseData);
+        console.log(responseData);
           user.insert(req.body, function(err, result){
               // console.log(result)
               var data={ }
