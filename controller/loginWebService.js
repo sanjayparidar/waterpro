@@ -2,6 +2,7 @@ var express=require("express");
 var router=express.Router();
 var user = require("../model/user");
 const { check,validationResult } = require('express-validator/check');
+const Nexmo = require('nexmo');
 router.post("/",
   
 [
@@ -44,9 +45,29 @@ user.findWhere( { $and: [ { mobile:m  }, { password:p } ] } , function(err, resu
 		    // console.log(data)
 				res.send(data)
            }else{
+           	  var random=Math.floor(Math.random() *10000)+1000;
+          // req.body.otp=random;
+              result[0].otp=random.toString();
+               console.log(result)
+          var mobilenumber="91"+result[0].mobile;
+              
+          const nexmo = new Nexmo({
+            apiKey: "76c0446d",apiSecret: "cnGkIdULJerMTR47"
+            });
+              nexmo.message.sendSms("919691889808" ,mobilenumber,random,(err, responseData) => {
+               if (err) {
+        // console.log(err);
+              } else {
+
+        // console.log(responseData);
+        
            	data.response="please submit otp";
            	data.result=result;
            	res.send(data)
+          
+         }
+       }
+     );
            }
 		}
 	});
