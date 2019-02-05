@@ -51,6 +51,7 @@ router.post("/",
         // console.log(responseData);
           user.insert(req.body, function(err, result){
               // console.log(result)
+              var data={ }
              data.response="success";
              data.result=result.ops
              res.send(data);
