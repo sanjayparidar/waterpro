@@ -45,6 +45,7 @@ user.findWhere( { $and: [ { mobile:m  }, { password:p } ] } , function(err, resu
 				res.send(data)
            }else{
            	data.response="please submit otp";
+           	data.result=result;
            	res.send(data)
            }
 		}

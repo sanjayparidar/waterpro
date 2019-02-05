@@ -50,7 +50,10 @@ router.post("/",
 
         // console.log(responseData);
           user.insert(req.body, function(err, result){
-          res.send(result.ops)
+          
+             data.response="success";
+             data.result=result.ops;
+             res.send(data);
           });
          }
        }

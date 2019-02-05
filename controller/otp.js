@@ -8,7 +8,7 @@ router.post("/",function(req,res){
 	user.findWhere({_id:Mongo.ObjectId(req.body.id)},function(err,result){
 		
 		  var result =result[0]
-      console.log(result)
+      // console.log(result)
       if(result.otp==req.body.otp){
      	     result.otpstatus="otpsuccess";
      	     user.updateWhere({_id : Mongo.ObjectId(req.body.id)}, result, function(err, result){
@@ -18,6 +18,7 @@ router.post("/",function(req,res){
 	         });
       }else{
      	     data={ };
+           data.response="otp not match"
      	     data.id=req.body.id;
      	     res.send(data);
        }
@@ -45,7 +46,7 @@ router.post("/resendotp",function(req,res){
           user.updateWhere({_id:Mongo.ObjectId(req.body.id)},result,function(err,result){
             
           var data={ };
-          data.resendotp="resendotp";
+          data.response="resendotp";
           data.id=req.body.id;
           console.log(data)
           res.send(data)      
