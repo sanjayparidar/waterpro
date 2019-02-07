@@ -16,7 +16,7 @@ var router=express.Router();
 
 	var file = req.files.image;
 	var newname = changename(file.name);
-	var filepath = path.resolve("app/public/product_image/"+newname);
+	var filepath = path.resolve("../public/product_image/"+newname);
 	// console.log(x);
 	file.mv(filepath, function(err){
 		if(err){
