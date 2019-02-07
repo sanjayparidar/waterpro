@@ -34,7 +34,7 @@ router.post("/",
           var today = ("0"+new Date().getDate()).slice(-2)+'-'+("0"+(new Date().getMonth()+1)).slice(-2)+'-'+("0"+new Date().getFullYear()).slice(-4)+' '+("0"+new Date().getHours()).slice(-2)+':'+("0"+new Date().getMinutes()).slice(-2);
           req.body.date=today;
 
-          var random=Math.floor(Math.random() *10000)+1000;
+          var random=Math.floor(Math.random() *9000)+1000;
           // req.body.otp=random;
           req.body.otp=random.toString();
           
@@ -45,7 +45,10 @@ router.post("/",
             });
               nexmo.message.sendSms("919691889808" ,mobilenumber,random,(err, responseData) => {
                if (err) {
-        console.log(err);
+                console.log("hello")
+                var data={ }
+                data.response="mobile no. not validate"
+                res.send(data)
               } else {
 
         console.log(responseData);
@@ -61,7 +64,7 @@ router.post("/",
      );
 
        }else{
-        console.log("hello")
+        
         data={ };
         data.response="user allredy resister"
         res.send(data)
