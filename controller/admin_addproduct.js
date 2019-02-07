@@ -48,7 +48,7 @@ var router=express.Router();
 		var filepath = path.resolve("public/product_image/"+newname);
 		file.mv(filepath);
 		req.body.image = newname;
-		var oldfilepath = path.resolve("public/product_image/"+image);
+		var oldfilepath = path.resolve("./public/product_image/"+image);
 		fs.unlinkSync(oldfilepath);
 
 	}
