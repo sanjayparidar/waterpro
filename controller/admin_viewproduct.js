@@ -17,7 +17,9 @@ router.get("/", function(req, res){
 
 router.get("/delete/:id",function(req,res){
     product.findWhere({_id:Mongodb.ObjectId(req.params.id)},function(err,result){
+    	console.log(result)
         var image=result[0].image
+
     	var oldfilepath = path.resolve("public/product_image/"+image);
 		fs.unlinkSync(oldfilepath);
 

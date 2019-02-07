@@ -16,8 +16,10 @@ var router=express.Router();
 
 	var file = req.files.image;
 	var newname = changename(file.name);
-	var filepath = path.resolve("../public/product_image/"+newname);
-	// console.log(x);
+	// console.log(path.resolve
+	var filepath = path.resolve("public/product_image/"+newname);
+	console.log(filepath)
+	console.log()
 	file.mv(filepath, function(err){
 		if(err){
 			console.log(err);
@@ -48,7 +50,7 @@ var router=express.Router();
 		var filepath = path.resolve("public/product_image/"+newname);
 		file.mv(filepath);
 		req.body.image = newname;
-		var oldfilepath = path.resolve("app/public/product_image/"+image);
+		var oldfilepath = path.resolve("public/product_image/"+image);
 		fs.unlinkSync(oldfilepath);
 
 	}
