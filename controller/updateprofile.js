@@ -3,7 +3,6 @@ var router=express.Router();
 var user = require("../model/user");
 var Mongo = require("mongodb");
 
-
 router.post("/",function(req,res){
      console.log("updateprofile")
 	var id= req.body.id;
@@ -12,6 +11,6 @@ router.post("/",function(req,res){
 		res.send(result)
 	});
 });
-
-
 module.exports=router;
+
+
