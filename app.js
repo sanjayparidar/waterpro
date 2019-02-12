@@ -1,8 +1,6 @@
 var express=require("express");
 var app=express();
 
-var path = require('path')
-
 
 var bodyparser=require("body-parser");
 var session = require('express-session');
@@ -13,11 +11,7 @@ var upload = require('express-fileupload');
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
-// app.use(express.static(__dirname+"/public"));
-
-process.env.PWD = process.cwd();
-app.use(express.static(path.join(process.env.PWD, 'public')));
-
+app.use(express.static(__dirname+"/public"));
 
 app.use(express.json());
 app.use(bodyparser());
