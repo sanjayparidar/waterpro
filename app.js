@@ -33,6 +33,6 @@ app.use(function(req, res, next){
 
 app.use(require("./controller/default"));
 
-app.listen(process.env.PORT || 2000,function(){
-	console.log("server");
-});
+app.listen(process.env.PORT || 2000 ,function(){
+	console.log("server")
+})
