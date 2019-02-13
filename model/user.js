@@ -20,3 +20,10 @@ module.exports.updateWhere=function(where, obj, cb){
 		db.collection('user').update(where, {$set : obj}, cb);
 	});
 }
+
+module.exports.find=function(cb){
+	connection.init(function(err, client){
+		var db = client.db(config.dbName);
+		db.collection('user').find().toArray(cb);
+	});
+}
