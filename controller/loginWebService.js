@@ -3,6 +3,7 @@ var router=express.Router();
 var user = require("../model/user");
 const { check,validationResult } = require('express-validator/check');
 const Nexmo = require('nexmo');
+var jwt=require("jsonwebtoken");
 router.post("/",
   
 [
@@ -42,13 +43,19 @@ user.findWhere( { $and: [ { mobile:m  }, { password:p } ] } , function(err, resu
 		   if(result[0].otpstatus){     
 			data.response="success";
 		    data.result=result;
-		    // console.log(data)
-				res.send(data)
+		    jwt.sign({user:"abhi"},"suab",(err,token)=>{
+          if(err)
+              res.status(400).json("err");
+          else{
+              data.token=token
+
+				      res.send(data)}
+          });
            }else{
            	  var random=Math.floor(Math.random() *10000)+1000;
           // req.body.otp=random;
               result[0].otp=random.toString();
-               console.log(result)
+               // console.log(result)
           var mobilenumber="91"+result[0].mobile;
               
           const nexmo = new Nexmo({
