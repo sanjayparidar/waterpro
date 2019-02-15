@@ -57,7 +57,7 @@ router.post("/",
               var data={ }
              data.response="success";
              data.result=result.ops
-             res.status(200).json(data);
+             res.send(data);
           });
          }
        }
