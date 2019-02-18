@@ -30,7 +30,7 @@ router.post("/resendotp",function(req,res){
 	
 	user.findWhere({_id:Mongo.ObjectId(req.body.id)},function(err,result){
 		  var result=result[0];
-      var random=Math.floor(Math.random() *10000)+1000;
+      var random=Math.floor(Math.random() *9000)+1000;
       result.otp=random.toString();
         // console.log(result)
       var mobilenumber="91"+result.mobile;

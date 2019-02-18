@@ -10,7 +10,7 @@ router.post("/",
   check('mobile').isLength({ min: 10 }).withMessage('must be at least 10 chars long'),
 //   check("password").matches("^(?=[^\d_].*?\d)\w(\w|[!@#$%]){7,20}"
 // ),
-  check("password").matches("^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$").withMessage('must be atleast degit ,specil and alph')
+  // check("password").matches("^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$").withMessage('must be atleast degit ,specil and alph')
 
 
 

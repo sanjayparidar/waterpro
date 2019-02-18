@@ -18,7 +18,7 @@ router.post("/",
     check("long").isLength({ min: 1 }).withMessage("lat no. is must be require"),
     // check("otp").isLength({ min: 1 }).withMessage("otp no. is must be require"),
     check("IEMI").matches("[0-9]+$").withMessage("IEMI no. is must be require"),
-    check("password").matches("^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$").withMessage('must be atleast degit ,specil and alph'),
+    // check("password").matches("^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$").withMessage('must be atleast degit ,specil and alph'),
     check('deviceId').isLength({ min: 1 }).withMessage("diveID must be required")
 	,function(req,res){
     
