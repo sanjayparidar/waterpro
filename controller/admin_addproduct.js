@@ -1,5 +1,4 @@
  var express=require("express");
- 
  var router=express.Router();
  var product = require("../model/product");
  var changename = require("../helper/changefilename");
