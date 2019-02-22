@@ -67,10 +67,17 @@ user.findWhere( { $and: [ { mobile:m  }, { password:p } ] } , function(err, resu
               } else {
 
         // console.log(responseData);
-        
+          
            	data.response="please submit otp";
            	data.result=result;
-           	res.send(data)
+           	 jwt.sign({user:"abhi"},"suab",(err,token)=>{
+          if(err)
+              res.status(400).json("err");
+          else{
+              data.token=token
+
+              res.send(data)}
+          });
           
          }
        }

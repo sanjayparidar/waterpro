@@ -3,8 +3,10 @@ var router=express.Router();
 var user = require("../model/user");
 var Mongo = require("mongodb");
 const Nexmo = require('nexmo');
+var jwt=require("jsonwebtoken");
+var verifytoken=require("../helper/verifytoken");
 
-router.post("/",function(req,res){
+router.post("/",verifytoken.verifyToken,function(req,res){
 	user.findWhere({_id:Mongo.ObjectId(req.body.id)},function(err,result){
 		
 		  var result =result[0]
@@ -26,7 +28,7 @@ router.post("/",function(req,res){
 });
 
 
-router.post("/resendotp",function(req,res){
+router.post("/resendotp",verifytoken.verifyToken,function(req,res){
 	
 	user.findWhere({_id:Mongo.ObjectId(req.body.id)},function(err,result){
 		  var result=result[0];
