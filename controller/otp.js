@@ -35,7 +35,7 @@ router.post("/",verifytoken.verifyToken,function(req,res){
 });
 
 
-router.post("/resendotp",verifytoken.verifyToken,function(req,res){
+router.post("/resendotp",function(req,res){
  
   // jwt.verify(req.token,'suab',(err,authdata)=>{
   //   if(authdata){
