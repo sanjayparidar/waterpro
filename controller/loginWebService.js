@@ -65,8 +65,10 @@ user.findWhere( { $and: [ { mobile:m  }, { password:p } ] } , function(err, resu
                if (err) {
         // console.log(err);
               } else {
-
-        // console.log(responseData);
+                user.updateWhere({_id:Mongo.ObjectId(result[0]._id)},result,function(err,result){
+           
+                      
+         // console.log(responseData);
           
            	data.response="please submit otp";
            	data.result=result;
@@ -77,13 +79,16 @@ user.findWhere( { $and: [ { mobile:m  }, { password:p } ] } , function(err, resu
               data.token=token
 
               res.send(data)}
-          });
+          }); 
+        });
           
-         }
        }
-     );
-           }
-		}
+
+     }
+
+   );
+ }
+}
 	});
 
 	
