@@ -4,6 +4,7 @@ var user = require("../model/user");
 const { check,validationResult } = require('express-validator/check');
 const Nexmo = require('nexmo');
 var jwt=require("jsonwebtoken");
+var Mongo=require("mongodb")
 router.post("/",
   
 [
@@ -55,7 +56,7 @@ user.findWhere( { $and: [ { mobile:m  }, { password:p } ] } , function(err, resu
            	  var random=Math.floor(Math.random() *10000)+1000;
           // req.body.otp=random;
               result[0].otp=random.toString();
-               // console.log(result)
+               console.log(result)
           var mobilenumber="91"+result[0].mobile;
               
           const nexmo = new Nexmo({
@@ -65,9 +66,11 @@ user.findWhere( { $and: [ { mobile:m  }, { password:p } ] } , function(err, resu
                if (err) {
         // console.log(err);
               } else {
-                user.updateWhere({_id:Mongo.ObjectId(result[0]._id)},result,function(err,result){
+                console.log(result+"first")
+                console.log(result[0]+"second")
+                user.updateWhere({_id:Mongo.ObjectId(result._id)},result,function(err,result){
            
-                      
+                      console.log(result)
          // console.log(responseData);
           
            	data.response="please submit otp";
