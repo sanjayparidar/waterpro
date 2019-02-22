@@ -24,4 +24,3 @@ router.get("/edit/:id", verifytoken.verifyToken,function(req,res){
 
 module.exports=router;
 
-
