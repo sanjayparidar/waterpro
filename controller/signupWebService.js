@@ -2,6 +2,7 @@ var express=require("express");
 var router=express.Router();
 var user = require("../model/user");
 const Nexmo = require('nexmo');
+var jwt=require("jsonwebtoken");
 
 // router.use(bodyParser.urlencoded({ extended: true }));
 const { check,validationResult } = require('express-validator/check');
@@ -57,7 +58,14 @@ router.post("/",
               var data={ }
              data.response="success";
              data.result=result.ops
-             res.send(data);
+             jwt.sign({user:"abhi"},"suab",(err,token)=>{
+          if(err)
+              res.status(400).json("err");
+          else{
+              data.token=token
+
+              res.send(data)}
+          });
           });
          }
        }
