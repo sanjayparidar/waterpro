@@ -80,7 +80,7 @@ user.findWhere( { $and: [ { mobile:m  }, { password:p } ] } , function(err, resu
               res.status(400).json("err");
           else{
                var token="Bearer"+" "+token;
-              data.token=token
+              data.token=token;
 
               res.send(data)}
           }); 

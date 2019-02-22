@@ -6,7 +6,10 @@ const Nexmo = require('nexmo');
 var jwt=require("jsonwebtoken");
 var verifytoken=require("../helper/verifytoken");
 
-router.post("/",function(req,res){
+router.post("/",verifytoken.verifyToken,function(req,res){
+  jwt.verify(req.token,'suab',(err,authdata)=>{
+    if(authdata){
+
 	user.findWhere({_id:Mongo.ObjectId(req.body.id)},function(err,result){
 		
 		  var result =result[0]
@@ -25,10 +28,14 @@ router.post("/",function(req,res){
      	     res.send(data);
        }
 	  });
+  }else{
+    res.status(400).json("no token given")
+  }
+})
 });
 
 
-router.post("/resendotp",function(req,res){
+router.post("/resendotp",verifytoken.verifyToken,function(req,res){
 	
 	user.findWhere({_id:Mongo.ObjectId(req.body.id)},function(err,result){
 		  var result=result[0];
