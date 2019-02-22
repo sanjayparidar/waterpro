@@ -6,7 +6,7 @@ const Nexmo = require('nexmo');
 var jwt=require("jsonwebtoken");
 var verifytoken=require("../helper/verifytoken");
 
-router.post("/",function(req,res){
+router.post("/",verifytoken.verifyToken,function(req,res){
   
 
 	user.findWhere({_id:Mongo.ObjectId(req.body.id)},function(err,result){
@@ -27,13 +27,11 @@ router.post("/",function(req,res){
      	     res.send(data);
        }
 	  });
-
 });
 
 
-router.post("/resendotp",function(req,res){
- 
- 
+router.post("/resendotp",verifytoken.verifyToken,function(req,res){
+	
 	user.findWhere({_id:Mongo.ObjectId(req.body.id)},function(err,result){
 		  var result=result[0];
       var random=Math.floor(Math.random() *9000)+1000;
@@ -61,7 +59,6 @@ router.post("/resendotp",function(req,res){
        }
      );
   });
-
 });
 
 module.exports=router;
