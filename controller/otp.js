@@ -28,7 +28,7 @@ router.post("/",function(req,res){
        }
 	  });
 
-});
+// });
 
 
 router.post("/resendotp",function(req,res){
