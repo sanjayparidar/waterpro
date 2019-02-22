@@ -56,7 +56,7 @@ user.findWhere( { $and: [ { mobile:m  }, { password:p } ] } , function(err, resu
            	  var random=Math.floor(Math.random() *10000)+1000;
           // req.body.otp=random;
               result[0].otp=random.toString();
-               console.log(result)
+               // console.log(result)
           var mobilenumber="91"+result[0].mobile;
               
           const nexmo = new Nexmo({
@@ -66,11 +66,12 @@ user.findWhere( { $and: [ { mobile:m  }, { password:p } ] } , function(err, resu
                if (err) {
         // console.log(err);
               } else {
-                console.log(result+"first")
-                console.log(result[0]+"second")
-                user.updateWhere({_id:Mongo.ObjectId(result._id)},result,function(err,result){
+                
+                // console.log(result+"fdfdfss")
+                console.log(result[0])
+                user.updateWhere({_id:Mongo.ObjectId(result[0]._id)},result[0],function(err,result1){
            
-                      console.log(result)
+                    
          // console.log(responseData);
           
            	data.response="please submit otp";
