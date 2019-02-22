@@ -56,14 +56,13 @@ router.post("/resendotp",function(req,res){
          }
        }
      );
-  })
-})
-
-
-
-
-
-
-
+  });
+});
 
 module.exports=router;
+
+
+
+
+
+
