@@ -6,7 +6,7 @@ const Nexmo = require('nexmo');
 var jwt=require("jsonwebtoken");
 var verifytoken=require("../helper/verifytoken");
 
-router.post("/",verifytoken.verifyToken,function(req,res){
+router.post("/",function(req,res){
   // jwt.verify(req.token,'suab',(err,authdata)=>{
   //   if(authdata){
 
