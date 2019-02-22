@@ -6,7 +6,7 @@ var jwt=require("jsonwebtoken");
 var verifytoken=require("../helper/verifytoken");
 
 
-router.get("/edit/:id",function(req,res){
+router.get("/edit/:id", verifytoken.verifyToken,function(req,res){
 	jwt.verify(req.token,'suab',(err,authdata)=>{
 		if(authdata){
 			user.findWhere({ _id : Mongo.ObjectId(req.params.id)}, function(err, result){
@@ -23,3 +23,5 @@ router.get("/edit/:id",function(req,res){
 });
 
 module.exports=router;
+
+
