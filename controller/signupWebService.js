@@ -62,6 +62,8 @@ router.post("/",
           if(err)
               res.status(400).json("err");
           else{
+            var token="Bearer"+" "+token;
+
               data.token=token
 
               res.send(data)}

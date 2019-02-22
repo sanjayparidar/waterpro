@@ -14,7 +14,6 @@ router.post("/",
   // check("password").matches("^(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$").withMessage('must be atleast degit ,specil and alph')
 
 
-
   
 ], (req, res) => {
   
@@ -53,7 +52,7 @@ user.findWhere( { $and: [ { mobile:m  }, { password:p } ] } , function(err, resu
 				      res.send(data)}
           });
            }else{
-           	  var random=Math.floor(Math.random() *10000)+1000;
+           	  var random=Math.floor(Math.random() *9000)+1000;
           // req.body.otp=random;
               result[0].otp=random.toString();
                // console.log(result)
@@ -80,6 +79,7 @@ user.findWhere( { $and: [ { mobile:m  }, { password:p } ] } , function(err, resu
           if(err)
               res.status(400).json("err");
           else{
+               var token="Bearer"+" "+token;
               data.token=token
 
               res.send(data)}

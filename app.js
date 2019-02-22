@@ -19,12 +19,9 @@ app.use(bodyparser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session({ secret : "TSS", saveUninitialized: true}));
 app.use(flash());
-
 app.use(upload());
-
 app.use(function(req, res, next){
 	// console.log(req.cookies);
-	
 	res.locals.session=req.session;
 	next();
 });
