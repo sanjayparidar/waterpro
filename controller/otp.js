@@ -7,8 +7,7 @@ var jwt=require("jsonwebtoken");
 var verifytoken=require("../helper/verifytoken");
 
 router.post("/",function(req,res){
-  // jwt.verify(req.token,'suab',(err,authdata)=>{
-  //   if(authdata){
+  
 
 	user.findWhere({_id:Mongo.ObjectId(req.body.id)},function(err,result){
 		
@@ -28,18 +27,13 @@ router.post("/",function(req,res){
      	     res.send(data);
        }
 	  });
-//   }else{
-//     res.status(400).json("no token given")
-//   }
-// })
+
 });
 
 
 router.post("/resendotp",function(req,res){
  
-  // jwt.verify(req.token,'suab',(err,authdata)=>{
-  //   if(authdata){
-	
+ 
 	user.findWhere({_id:Mongo.ObjectId(req.body.id)},function(err,result){
 		  var result=result[0];
       var random=Math.floor(Math.random() *9000)+1000;
@@ -67,8 +61,7 @@ router.post("/resendotp",function(req,res){
        }
      );
   });
-// }else{res.status(400).json("no token given")}
-// });
+
 });
 
 module.exports=router;
