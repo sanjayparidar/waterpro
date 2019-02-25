@@ -6,11 +6,11 @@
  var path = require('path');
  var Mongo=require('mongodb');
 
- router.get("/", function(req, res){
+ // router.get("/", function(req, res){
 	
-		var pagedata = {title : "Add Product", pagename : "admin/admin_addproduct", message : req.flash("msg")}
-	res.render("admin_layout", pagedata);
-	});
+	// 	var pagedata = {title : "Add Product", pagename : "admin/admin_addproduct", message : req.flash("msg")}
+	// res.render("admin_layout", pagedata);
+	// });
 
  router.post("/", function(req, res){
 
@@ -28,9 +28,10 @@
 		req.body.image=newname;
 		// console.log(req.body);
 		product.insert(req.body, function(err, result){
+			res.send(result)
 			// console.log(result);
-			req.flash("msg", "Product Add Successfuly");
-			res.redirect("/admin_addproduct");
+			// req.flash("msg", "Product Add Successfuly");
+			// res.redirect("/admin_addproduct");
 		});
 	});
 });
@@ -55,7 +56,8 @@
 
 	}
 	product.update({_id : Mongo.ObjectId(id)}, req.body, function(err, result){
-		res.redirect("/admin_viewproduct");
+		// res.redirect("/admin_viewproduct");
+		res.send("product update");
 	});
 });
 

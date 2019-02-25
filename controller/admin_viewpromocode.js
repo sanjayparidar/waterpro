@@ -1,16 +1,16 @@
 var express = require('express');
 var router = express.Router();
-var product = require('../model/product');
+var promo = require('../model/promocode');
 var Mongodb = require('mongodb');
 var fs=require('fs');
 var path=require("path");
 
 router.get("/", function(req, res){
 
-	product.find(function(err, result){
-             res.send(result)
-			// var pagedata = { title : "View Category", pagename : "admin/admin_viewproduct", data : result};
-			// res.render("admin_layout", pagedata);
+	promo.find(function(err, result){
+             // res.send(result)
+			var pagedata = { title : "View promo", pagename : "admin/admin_viewpromo", data : result};
+			res.render("admin_layout", pagedata);
 		// console.log(result);
 	});
 });
@@ -38,9 +38,9 @@ router.get("/update/:id", function(req, res){
 	product.findWhere({ _id : Mongodb.ObjectId(req.params.id) }, function(err, result){
 		var prodata=result[0];
 		// console.log(result);
-		 res.send(prodata)
-			// var pagedata = { title : "Update Product", pagename : "admin/admin_updateproduct", prodata : prodata};
-			// res.render("admin_layout", pagedata);
+		
+			var pagedata = { title : "Update Product", pagename : "admin/admin_updateproduct", prodata : prodata};
+			res.render("admin_layout", pagedata);
 		
 		
 	});
@@ -50,4 +50,3 @@ router.get("/update/:id", function(req, res){
 
 
 module.exports=router;
-	

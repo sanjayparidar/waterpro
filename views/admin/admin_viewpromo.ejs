@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="col-md-10 col-md-offset-1">
+  <h3>View All Category</h3>
+  <table class="table table-bordered table-striped">
+  	<tr>
+  		<th>S.No.</th> 
+      <th>Promoname</th>
+      <th>discount</th>
+      <th>startdate</th>
+      <th>enddate</th>
+      
+  		
+  		<th>Edit</th>
+  		<th>Delete</th>
+  	</tr>
+  	<% data.forEach(function(x, i){ %>
+  		<tr>
+  			<td><%= i+1 %></td>
+        <td><%= x.promoname %></td>
+        <td><%= x.discount %></td>
+        <td><%= x.startdate %></td>
+        <td><%= x.enddate %></td>
+        
+        
+  			
+  			<td><a href="admin_viewproduct/update/<%= x._id %>" class="btn btn-sm btn-info">Edit</a></td>
+  			
+
+        <td><a href="admin_viewproduct/delete/<%= x._id %>" data-toggle="modal" class="btn btn-sm btn-danger">Delete</a></td>
+
+  		</tr>
+ <% }) %>
+  </table>
+</div>
+</div>

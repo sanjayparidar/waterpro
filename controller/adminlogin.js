@@ -2,12 +2,12 @@ var express = require('express');
 var router = express.Router();
 var admin = require("../model/admin");
 
-router.get('/', function(req, res){
-	console.log("hello")
+// router.get('/', function(req, res){
+// 	console.log("hello")
 	
-	var pagedata = {title : "Admin Login", pagename : "admin/index", message : req.flash('msg')};
-	res.render("admin_layout", pagedata);
-});
+// 	var pagedata = {title : "Admin Login", pagename : "admin/index", message : req.flash('msg')};
+// 	res.render("admin_layout", pagedata);
+// });
 
 // router.get("/logout", function(req, res){
 // 	req.session.destroy();
@@ -21,8 +21,7 @@ router.post("/", function(req, res){
 	admin.findWhere({username : u}, function(err, result){
 		if(result.length==0)
 		{
-			req.flash("msg", "This Username and Password incorrect");
-			res.redirect("/adminpanel");
+			res.send("this is username and password incorrect")
 		}
 		else
 		{
@@ -31,12 +30,11 @@ router.post("/", function(req, res){
 				req.session.adminid=result[0]._id;
 				req.session.admin_name=result[0].name;
 				req.session.is_admin_logged_in=true;
-				res.redirect("/admin_dashboard");
+				res.send(result[0])
 			}
 			else
 			{
-				req.flash("msg", "This Password incorrect");
-				res.redirect("/adminpanel");
+				res.send("this user password is incorrect")
 			}
 		}
 	});

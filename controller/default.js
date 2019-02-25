@@ -15,6 +15,8 @@ router.use("/admin_dashboard",require("./admin_dashboard"));
 router.use("/admin_addproduct",require("./admin_addproduct"));
 router.use("/admin_viewproduct",require("./admin_viewproduct"));
 router.use("/admin_alluser",require("./admin_alluser"));
+router.use("/admin_addpromo",require("./promocode"));
+router.use("/admin_viewpromo",require("./admin_viewpromocode"));
 // router.use("/",require("./signup"));
 // router.use("/login",require("./login"));
 
