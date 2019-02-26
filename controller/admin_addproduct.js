@@ -5,15 +5,17 @@
  var fs = require('fs');
  var path = require('path');
  var Mongo=require('mongodb');
+ var multer      = require('multer');
 
- // router.get("/", function(req, res){
+ router.get("/", function(req, res){
 	
-	// 	var pagedata = {title : "Add Product", pagename : "admin/admin_addproduct", message : req.flash("msg")}
-	// res.render("admin_layout", pagedata);
-	// });
+		var pagedata = {title : "Add Product", pagename : "admin/admin_addproduct", message : req.flash("msg")}
+	res.render("admin_layout", pagedata);
+	});
 
  router.post("/", function(req, res){
-
+ 	// console.?
+ 	
 	var file = req.files.image;
 	var newname = changename(file.name);
 	// console.log(path.resolve
@@ -28,6 +30,7 @@
 		req.body.image=newname;
 		// console.log(req.body);
 		product.insert(req.body, function(err, result){
+			
 			res.send(result)
 			// console.log(result);
 			// req.flash("msg", "Product Add Successfuly");

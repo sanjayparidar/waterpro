@@ -8,7 +8,12 @@ var path=require("path");
 router.get("/", function(req, res){
 
 	product.find(function(err, result){
-             res.send(result)
+			
+		var path = path.resolve("public/product_image/"+result[0].image);
+		console.log(path)
+		var pagedata={result:result,file:path}
+		// console.log(pagedata)
+             res.render(pagedata);
 			// var pagedata = { title : "View Category", pagename : "admin/admin_viewproduct", data : result};
 			// res.render("admin_layout", pagedata);
 		// console.log(result);

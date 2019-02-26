@@ -8,10 +8,14 @@ var cookieParser = require('cookie-parser');
 var flash = require('express-flash');
 
 var upload = require('express-fileupload');
-
+var cors=require("cors")
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 app.use(express.static(__dirname+"/public"));
+
+
+
+
 
 app.use(express.json());
 app.use(bodyparser());
@@ -44,6 +48,10 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
+
+
+
+
 
 
 
