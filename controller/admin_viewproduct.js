@@ -8,13 +8,7 @@ var path=require("path");
 router.get("/", function(req, res){
 
 	product.find(function(err, result){
-			
-	
-		// console.log(pagedata)
-             
-			// var pagedata = { title : "View Category", pagename : "admin/admin_viewproduct", data : result};
-			// res.render("admin_layout", pagedata);
-		// console.log(result);
+			res.send(result)
 	});
 });
 
