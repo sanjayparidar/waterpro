@@ -4,10 +4,17 @@ var product = require('../model/product');
 var Mongodb = require('mongodb');
 var fs=require('fs');
 var path=require("path");
+// var jpeg=require("jpeg")
 
 router.get("/", function(req, res){
 
 	product.find(function(err, result){
+		// var oldfilepath = path.resolve("public/product_image/"+result[0].image);
+
+		//   var pagedata={result:result,image:oldfilepath};
+		//   var pagedata=JSON.stringify(pagedata)
+		//   console.log(pagedata)
+		//     res.send(pagedata)
 			res.send(result)
 	});
 });
