@@ -28,6 +28,7 @@
 			return;
 		}
 		req.body.image=newname;
+		req.body.filepath=filepath;
 		// console.log(req.body);
 		product.insert(req.body, function(err, result){
 			
