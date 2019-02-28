@@ -2,6 +2,8 @@ var express=require("express");
 var router=express.Router();
 
 router.get("/:userid/:productid",function(req,res){
+  console.log(req.params.userid,"+++++++++++++++++++++++++++++++++++++++++++++++++++")
+  console.log(req.params.productid,"-------------------------------------------------")
    // add_cart.findWhere({productid:req.params.productid},{userid:req.params.userid},function(err,result){
    // 	if(result.length>0){
    //  add_cart.updatewhere({productid:req.params.productid},{userid:req.params.userid},req.body,function(err,result){
