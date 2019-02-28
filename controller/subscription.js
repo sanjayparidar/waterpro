@@ -29,6 +29,9 @@ router.get("/:userid",function(req,res){
   console.log(req.params)
   add_cart.findWhere({userid:req.params.userid},function(err,result){
     res.send(result)
+    product.findWhere({_id:Mongodb.ObjectId(req.params.id)},function(err,result){
+      console.log(result)
+    });
   });
 });
 
