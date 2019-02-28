@@ -7,6 +7,7 @@ router.use("/otp",require("./otp"));
 router.use("/profile",require("./profile"));
 router.use("/updateprofile",require("./updateprofile"));
 router.use("/logout",require("./logout"));
+router.use("/subscription",require("./subscription"));
 
 
 

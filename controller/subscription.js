@@ -1,9 +1,10 @@
 var express=require("express");
 var router=express.Router();
+var add_cart = require("../model/add_cart");
+
 
 router.get("/:userid/:productid",function(req,res){
-  console.log(req.params.userid,"+++++++++++++++++++++++++++++++++++++++++++++++++++")
-  console.log(req.params.productid,"-------------------------------------------------")
+ 
    // add_cart.findWhere({productid:req.params.productid},{userid:req.params.userid},function(err,result){
    // 	if(result.length>0){
    //  add_cart.updatewhere({productid:req.params.productid},{userid:req.params.userid},req.body,function(err,result){
@@ -14,9 +15,9 @@ router.get("/:userid/:productid",function(req,res){
    //  });
    // 	 }else{
 
-    res.send("hello")
+    
    	 	add_cart.insert(req.params,function(err,result){
-   	 		// res.send(result);
+   	 		res.send(result.ops);
 
    	 	});
    // 	 }
@@ -24,8 +25,9 @@ router.get("/:userid/:productid",function(req,res){
 });
 
 router.get("/:userid",function(req,res){
-  res.send("find")
-  add_cart.find({userid:req.body.userid},function(err,result){
+  
+  console.log(req.params)
+  add_cart.findWhere({userid:req.params.userid},function(err,result){
     res.send(result)
   });
 });
