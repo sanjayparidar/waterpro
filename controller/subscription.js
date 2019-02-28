@@ -11,8 +11,10 @@ router.get("/:userid/:productid",function(req,res){
             	
    //  });
    // 	 }else{
+
+    res.send("hello")
    	 	add_cart.insert(req.params,function(err,result){
-   	 		res.send(result);
+   	 		// res.send(result);
 
    	 	});
    // 	 }
@@ -20,6 +22,7 @@ router.get("/:userid/:productid",function(req,res){
 });
 
 router.get("/:userid",function(req,res){
+  res.send("find")
   add_cart.find({userid:req.body.userid},function(err,result){
     res.send(result)
   });
