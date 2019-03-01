@@ -49,7 +49,7 @@
 	var id = req.body.id;
 	delete req.body.id;
 	// console.log(req.files);
-	// if(req.files.image)//{}
+	if(req.files.image)
 	{
 	
 		var file = req.files.image;
@@ -57,8 +57,8 @@
 		var filepath = path.resolve("public/product_image/"+newname);
 		file.mv(filepath);
 		req.body.image = newname;
-		var oldfilepath = path.resolve("public/product_image/"+image);
-		fs.unlinkSync(oldfilepath);
+		// var oldfilepath = path.resolve("public/product_image/"+image);
+		// fs.unlinkSync(oldfilepath);
 
 	}
 	product.update({_id : Mongo.ObjectId(id)}, req.body, function(err, result){
