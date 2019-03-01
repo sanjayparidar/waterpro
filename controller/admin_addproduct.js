@@ -44,11 +44,11 @@
  router.post("/update", function(req, res){
 	// console.log(req.body);
 	var id = req.body.id;
-	var image = req.body.image;
 	delete req.body.id;
 	// console.log(req.files);
 	if(req.files.image)//{}
 	{
+	var image = req.body.image;
 	delete req.body.image;
 		var file = req.files.image;
 		var newname = changename(file.name);
