@@ -8,9 +8,8 @@ var path=require("path");
 router.get("/", function(req, res){
 
 	promo.find(function(err, result){
-             // res.send(result)
-			var pagedata = { title : "View promo", pagename : "admin/admin_viewpromo", data : result};
-			res.render("admin_layout", pagedata);
+             res.send(result)
+			
 		// console.log(result);
 	});
 });
