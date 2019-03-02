@@ -19,7 +19,7 @@ router.get("/delete/:id",function(req,res){
     promo.findWhere({_id:Mongodb.ObjectId(req.params.id)},function(err,result){
     	
         promo.remove({_id:Mongodb.ObjectId(req.params.id)},function(err,result){
-    	res.send("product padate");
+    	res.send("product delete");
 
     	});
     	

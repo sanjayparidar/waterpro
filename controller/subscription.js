@@ -21,8 +21,7 @@ router.get("/:userid/:productid",function(req,res){
    	 		res.send(result.ops);
 
    	 	});
-   // 	 }
-   // });
+  
 });
 
 router.get("/:userid",function(req,res){

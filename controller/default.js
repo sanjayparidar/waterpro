@@ -9,7 +9,7 @@ router.use("/updateprofile",require("./updateprofile"));
 router.use("/logout",require("./logout"));
 router.use("/subscription",require("./subscription"));
 router.use("/forgotpassword",require("./forgotpassword"));
-
+router.use("/viewproduct",require("./viewproduct"));
 
 
 router.use("/adminpanel",require("./adminlogin"));
@@ -19,6 +19,7 @@ router.use("/admin_viewproduct",require("./admin_viewproduct"));
 router.use("/admin_alluser",require("./admin_alluser"));
 router.use("/addpromo",require("./addpromocode"));
 router.use("/viewpromo",require("./viewpromocode"));
+
 // router.use("/",require("./signup"));
 // router.use("/login",require("./login"));
 
