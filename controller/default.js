@@ -8,6 +8,7 @@ router.use("/profile",require("./profile"));
 router.use("/updateprofile",require("./updateprofile"));
 router.use("/logout",require("./logout"));
 router.use("/subscription",require("./subscription"));
+router.use("/forgotpassword",require("./forgotpassword"));
 
 
 
