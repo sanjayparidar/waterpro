@@ -3,9 +3,10 @@ var router=express.Router();
 var promo=require("../model/promocode");
 
 router.get("/",function(req,res){
-
-	// var pagedata={title:"addpromo",pagename:"admin/admin_addpromo"}
-	// res.render("admin_layout",pagedata);
+    promo.find(function(err,result){
+    	res.send(result)
+    })
+	
 });
 
 router.post("/",function(req,res){
