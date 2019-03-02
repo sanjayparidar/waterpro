@@ -6,7 +6,7 @@ var promo=require("../model/promocode");
 router.post("/",function(req,res){
 	console.log(req.body)
     promo.insert(req.body,function(err,result){
-      console.log(result)
+      res.send(result.ops)
     });
 });
 
