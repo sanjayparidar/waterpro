@@ -1,7 +1,8 @@
 var express=require("express");
 var router=express.Router();
 var add_cart = require("../model/add_cart");
-
+var product = require("../model/product");
+var Mongodb=require("mongodb")
 
 router.get("/:userid/:productid",function(req,res){
  
