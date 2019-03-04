@@ -7,11 +7,11 @@
  var Mongo=require('mongodb');
  var multer      = require('multer');
 
- router.get("/", function(req, res){
+ // router.get("/", function(req, res){
 	
-		var pagedata = {title : "Add Product", pagename : "admin/admin_addproduct", message : req.flash("msg")}
-	res.render("admin_layout", pagedata);
-	});
+	// 	var pagedata = {title : "Add Product", pagename : "admin/admin_addproduct", message : req.flash("msg")}
+	// res.render("admin_layout", pagedata);
+	// });
 
  router.post("/", function(req, res){
  	// console.?
@@ -28,7 +28,7 @@
 			return;
 		}
 		req.body.image=newname;
-		req.body.filepath=filepath;
+		
 		// console.log(req.body);
 		product.insert(req.body, function(err, result){
 			
