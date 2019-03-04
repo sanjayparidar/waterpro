@@ -82,8 +82,35 @@ router.post("/delete",function(req,res){
 })
 
 
-router.post("/")
+router.post("/clear",function(req,res){
+       add_cart.remove({$and:[{productid:req.body.productid},{userid:req.body.userid}]},function(err,result){
+           res.send("success full remove")
+       });
+     });
 
 
+router.get("/:userid",function(req,res){
+   // {$or: [{key1: value1}, {key2:value2}]}
+   add_cart.findWhere({userid:req.params.userid},function(err,result){
+      res.send(result);
+   });
+
+});
+
+
+
+router.post("/promo",function(req,res){
+   add_cart.findWhere({userid:req.body.userid},function(err,result){
+    console.log(result)
+      add_cart.updateWhere({$and:[{userid:"5c726548cae3e00017beda90"},{$or:[{productid:"5c7d2aadd7824e001758b289"},{productid:"5c7d2aced7824e001758b28d"}]}]},req.body,function(err,result){
+          res.send(result)
+
+      });
+   });
+});
 module.exports=router;
+
+
+
+
     

@@ -24,7 +24,7 @@ module.exports.findWhere=function(obj,cb){
 module.exports.updateWhere=function(where, obj, cb){
 	connection.init(function(err, client){
 		var db = client.db(config.dbName);
-		db.collection('add_cart').update(where, {$set : obj}, cb);
+		db.collection('add_cart').update(where, {$set : obj},{multi: true}, cb);
 	});
 }
 
