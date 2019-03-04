@@ -16,7 +16,8 @@ router.post('/online',function(req,res){
 
 
 router.post('/offline',function(req,res){
-   offpayment.insert(req.body,function(err,res){
+   offpayment.insert(req.body,function(err,result){
+   	res.send(result)
    });
 });
 
