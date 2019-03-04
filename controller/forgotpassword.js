@@ -6,6 +6,8 @@ const Nexmo = require('nexmo');
 
 
 router.post("/",function(req,res){
+
+  console.log("+++++++++++++++++++++","change password")
 	var m = req.body.mobile;
 	console.log(req.body)
 	user.findWhere({mobile:m},function(err,result){
