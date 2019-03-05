@@ -2,12 +2,12 @@ var express = require('express');
 var router = express.Router();
 var admin = require("../model/admin");
 
-router.get('/', function(req, res){
-	console.log("hello")
+// router.get('/', function(req, res){
+// 	console.log("hello")
 	
-	var pagedata = {title : "Admin Login", pagename : "admin/index", message : req.flash('msg')};
-	res.render("admin_layout", pagedata);
-});
+// 	var pagedata = {title : "Admin Login", pagename : "admin/index", message : req.flash('msg')};
+// 	res.render("admin_layout", pagedata);
+// });
 
 // router.get("/logout", function(req, res){
 // 	req.session.destroy();
@@ -27,9 +27,6 @@ router.post("/", function(req, res){
 		{
 			if(result[0].password==p)
 			{
-				req.session.adminid=result[0]._id;
-				req.session.admin_name=result[0].name;
-				req.session.is_admin_logged_in=true;
 				res.send(result[0])
 			}
 			else
