@@ -160,17 +160,14 @@ router.post("/clear",function(req,res){
 
 router.post("/clearcart",function(req,res){
   add_cart.remove({userid:req.body.userid},function(err,result){
-           res.send("success full remove")
+           res.send("success full remove");
        });
 });
 
 
-router.get("/:userid",function(req,res){
-   // {$or: [{key1: value1}, {key2:value2}]}
-   add_cart.findWhere({userid:req.params.userid},function(err,result){
-      res.send(result);
-   });
-});
+
+
+
           
 module.exports=router;
 
