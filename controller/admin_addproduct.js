@@ -48,7 +48,7 @@
 	delete req.body.id;
 
 	
-	if(req.files.image!="undefined")
+	if(req.files.image)
 	{
 	
 		var file = req.files.image;
