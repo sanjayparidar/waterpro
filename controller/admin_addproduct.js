@@ -42,7 +42,7 @@
 
 
  router.post("/update", function(req, res){
-    console.log("+++++++++++++++++++++++++++++++++")
+   
 	
 	var id = req.body.id;
 	delete req.body.id;
@@ -50,7 +50,7 @@
 	
 	if(req.files.image!='')
 	{
-	
+	   console.log("+++++++++++++++++++++")
 		var file = req.files.image;
 		var newname = changename(file.name);
 		var filepath = path.resolve("public/product_image/"+newname);
