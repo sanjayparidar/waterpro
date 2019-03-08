@@ -43,7 +43,7 @@
 
  router.post("/update", function(req, res){
     console.log("+++++++++++++++++++++++++++++++++")
-	console.log(req.files.image,"+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_")
+	
 	var id = req.body.id;
 	delete req.body.id;
 
