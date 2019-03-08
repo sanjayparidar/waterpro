@@ -121,12 +121,13 @@ var Mongodb=require("mongodb");
 
 
 router.post("/",function(req,res){
-
+console.log(req.body.userid)
 // { $and: [ { price: { $ne: 1.99 } }
   add_cart.findWhere({$and:[{productid:req.body.productid},{userid:req.body.userid}]},function(err,result){
-    // console.log(result)
+      console.log(result.length)
     if(result.length>0){
-        
+
+        console.log("hello")    
         add_cart.updateWhere({$and:[{productid:req.body.productid},{userid:req.body.userid}]},req.body,function(err,result){
         add_cart.findWhere({userid:req.body.userid},function(err,result){
           res.send(result)
@@ -163,11 +164,6 @@ router.post("/clearcart",function(req,res){
            res.send("success full remove");
        });
 });
-
-
-
-
-
           
 module.exports=router;
 

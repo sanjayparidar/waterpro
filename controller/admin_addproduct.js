@@ -49,7 +49,7 @@
 	var id = req.body.id;
 	delete req.body.id;
 	// console.log(req.files);
-	if(req.files.image)
+	if(req.files.image!="undefined")
 	{
 	
 		var file = req.files.image;
