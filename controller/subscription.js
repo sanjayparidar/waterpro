@@ -163,8 +163,10 @@ router.post("/clear",function(req,res){
 
 router.post("/clearcart",function(req,res){
   add_cart.remove({userid:req.body.userid},function(err,result){
-           res.send("success full remove");
-       });
+    var result1={}
+    result1.response="success full remove"   
+    res.send(result1)      
+   });
 });
 
 
