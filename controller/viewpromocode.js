@@ -48,7 +48,7 @@ router.get("/", function(req, res){
 });		
 
 router.post("/findpromo", function(req, res){
-
+         console.log("+_++++++++++")
 	promo.findWhere({pcode:req.body.promocode},function(err, result){
              res.send(result)
 			

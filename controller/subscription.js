@@ -155,7 +155,9 @@ router.get("/:userid",function(req,res){
 
 router.post("/clear",function(req,res){
        add_cart.remove({$and:[{productid:req.body.productid},{userid:req.body.userid}]},function(err,result){
-           res.send("success full remove")
+        var result1={}
+        result1.response="success full remove"   
+        res.send(result1)
        });
      });
 
@@ -164,6 +166,8 @@ router.post("/clearcart",function(req,res){
            res.send("success full remove");
        });
 });
+
+
           
 module.exports=router;
 
