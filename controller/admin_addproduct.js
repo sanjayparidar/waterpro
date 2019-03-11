@@ -48,7 +48,7 @@
 	delete req.body.id;
 
 	
-	if(req.files.image!='')
+	if(req.files.image)
 	{
 	   console.log("+++++++++++++++++++++")
 		var file = req.files.image;
