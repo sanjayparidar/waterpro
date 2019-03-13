@@ -171,8 +171,23 @@ router.post("/clearcart",function(req,res){
    });
 });
 
-
+router.post("/promo",function(req,res){
+   add_cart.findWhere({userid:req.body.userid},function(err,result){
+    
+        var product=result.map(i=>{
+         var res={}
+         res.productid=i.productid
           
+          return res
+        });
+    
+      add_cart.updateWhere({$and:[{userid:req.body.userid},{$or:product}]},req.body,function(err,result){
+          res.send(result)
+      });
+  
+   });
+});
+
 module.exports=router;
 
 

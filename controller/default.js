@@ -10,6 +10,7 @@ router.use("/logout",require("./logout"));
 router.use("/subscription",require("./subscription"));
 router.use("/forgotpassword",require("./forgotpassword"));
 router.use("/viewproduct",require("./viewproduct"));
+router.use("/order",require("./order"));
 
 
 router.use("/adminpanel",require("./adminlogin"));
