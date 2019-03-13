@@ -4,8 +4,8 @@ var promo = require('../model/promocode');
 var Mongodb = require('mongodb');
 var fs=require('fs');
 var path=require("path");
-
-router.get("/", function(req, res){
+ 
+router.get("/",function(req, res){
 
 	promo.find(function(err, result){
              res.send(result)

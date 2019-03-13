@@ -127,7 +127,7 @@ console.log(req.body.userid)
       console.log(result.length)
     if(result.length>0){
 
-        console.log("hello")    
+        
         add_cart.updateWhere({$and:[{productid:req.body.productid},{userid:req.body.userid}]},req.body,function(err,result){
         add_cart.findWhere({userid:req.body.userid},function(err,result){
           res.send(result)
@@ -135,6 +135,8 @@ console.log(req.body.userid)
    });     
         
     }else{
+
+        req.body.Quentity=1
          add_cart.insert(req.body,function(err,result){
          res.send(result.ops);
 
