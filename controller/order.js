@@ -3,25 +3,22 @@ var router=express.Router();
 
 var order = require("../model/order");
 var add_cart=require("../model/add_cart");
-
+var orderhistory=require("../model/orderhistory");
 router.post("/",function(req,res){
-	console.log("hello","++++++++++++++++++++++++______________________")
+
 	add_cart.findWhere({userid:req.body.userid},function(err,result){
-		var productid=result.map(i=>{
-			         var res={}
-			         res.productid=i.productid
-					  
-			          return res
-					});
-		req.body.productid=productid
+		
 		req.body.discounttotal=result[0].discounttotal				
 	  order.insert(req.body,function(err,result1){
-		 
-		  add_cart.remove({userid:req.body.userid},function(err,result){
+		     for(let i=0; i<result.length; i++){
+				 result[i].paymentid=paymentid
+			 } 
+		  orderhistory.insert(result,function(err,result){
+		 add_cart.remove({userid:req.body.userid},function(err,result){
 			res.send(result1)
               
 		  });
-
+		});
 	     
 	  });
    });	
@@ -38,6 +35,9 @@ router.post("/vieworder",function(req,res){
 		res.send(result)
 	});
 });
+
+
+
 
 
 module.exports=router;
