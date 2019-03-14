@@ -6,8 +6,8 @@ var add_cart=require("../model/add_cart");
 
 router.post("/",function(req,res){
 	console.log("hello","++++++++++++++++++++++++______________________")
-	add_cart.findWhere({userid:req.body.userid},function(err,result1){
-	  order.insert(result,function(err,result){
+	add_cart.findWhere({userid:req.body.userid},function(err,result){
+	  order.insert(result,function(err,result1){
 		 
 		  add_cart.remove({userid:req.body.userid},function(err,result){
 			res.send(result1)
