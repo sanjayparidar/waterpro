@@ -11,8 +11,9 @@ router.post("/",function(req,res){
 		req.body.discounttotal=result[0].discounttotal				
 	  order.insert(req.body,function(err,result1){
 		     for(let i=0; i<result.length; i++){
-				 result[i].paymentid=paymentid
+				 result[i].paymentid=req.body.paymentid
 			 } 
+			 console.log(result,"+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+__+_+_+_+_+_+_")
 		  orderhistory.insert(result,function(err,result){
 		 add_cart.remove({userid:req.body.userid},function(err,result){
 			res.send(result1)
