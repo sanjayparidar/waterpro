@@ -1,6 +1,6 @@
 var express=require("express");
 var router=express.Router();
-const Razorpay = require('razorpay');
+
 var order = require("../model/order");
 var add_cart=require("../model/add_cart");
 
