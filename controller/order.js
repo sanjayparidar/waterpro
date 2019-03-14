@@ -7,7 +7,16 @@ var add_cart=require("../model/add_cart");
 router.post("/",function(req,res){
 	console.log("hello","++++++++++++++++++++++++______________________")
 	add_cart.findWhere({userid:req.body.userid},function(err,result){
-	  order.insert(result,function(err,result1){
+		var productid=result.map(i=>{
+			         var res={}
+			         res.productid=i.productid
+					  
+			          return res
+					});
+		req.body.productid=productid
+		req.body.discounttotal=result.discounttotal
+					
+	  order.insert(req.body,function(err,result1){
 		 
 		  add_cart.remove({userid:req.body.userid},function(err,result){
 			res.send(result1)
