@@ -11,7 +11,7 @@ router.use("/subscription",require("./subscription"));
 router.use("/forgotpassword",require("./forgotpassword"));
 router.use("/viewproduct",require("./viewproduct"));
 router.use("/order",require("./order"));
-router.use('/',require("./contact"));
+router.use('/contact',require("./contact"));
 
 
 router.use("/adminpanel",require("./adminlogin"));
