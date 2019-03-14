@@ -14,8 +14,7 @@ router.post("/",function(req,res){
 			          return res
 					});
 		req.body.productid=productid
-		req.body.discounttotal=result.discounttotal
-					
+		req.body.discounttotal=result[0].discounttotal				
 	  order.insert(req.body,function(err,result1){
 		 
 		  add_cart.remove({userid:req.body.userid},function(err,result){
