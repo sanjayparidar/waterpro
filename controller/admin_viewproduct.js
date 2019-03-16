@@ -50,5 +50,12 @@ router.get("/update/:id", function(req, res){
 });
 
 
+router.get('/findwhere',function(err,result){
+	product.findWhere({category:req.body.category},function(err,result){
+		res.send(result)
+	});
+});
+
+
 module.exports=router;
 	

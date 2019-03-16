@@ -7,3 +7,6 @@ router.post("/",function(req,res){
         resizeBy.send(result)
     });
 });
+
+
+module.exports=router;

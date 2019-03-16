@@ -1,5 +1,6 @@
 var express=require("express");
-var router=express.Router();
+var router=express.Router()
+var numberofbottle=require("../model/numberofbottle");
 
 var order = require("../model/order");
 var add_cart=require("../model/add_cart");
@@ -7,15 +8,26 @@ var orderhistory=require("../model/orderhistory");
 router.post("/",function(req,res){
 
 	add_cart.findWhere({userid:req.body.userid},function(err,result){
-		
+		    numberofbottle.find(function(err,result2){
+
 		req.body.discounttotal=result[0].discounttotal				
-	  order.insert(req.body,function(err,result1){
+	      order.insert(req.body,function(err,result1){
 		     for(let i=0; i<result.length; i++){
 				 result[i].paymentid=req.body.paymentid
+				 for(let j=0; j<result2.length; j++){
+					 if(result[i].category=result2[j].category){
+                         numberofbottle.updateWhere({category:result[i].category},{Quntity:result2[j].Quntity-result[i].Quntity},function(err,result){
+							 res.send("success");
+						 });
+					 }
+
+				 }
+				 
 			 } 
-			 console.log(result,"+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+_+__+_+_+_+_+_+_")
+		
 		  orderhistory.insert(result,function(err,result){
-		 add_cart.remove({userid:req.body.userid},function(err,result){
+			
+		   add_cartremove({userid:req.body.userid},function(err,result){
 			res.send(result1)
               
 		  });
@@ -23,6 +35,7 @@ router.post("/",function(req,res){
 	     
 	  });
    });	
+});
 });
 
 router.post('/viewallorder',function(req,res){
@@ -37,13 +50,4 @@ router.post("/vieworder",function(req,res){
 	});
 });
 
-
-
-
-
 module.exports=router;
-
-  
-
-
-
