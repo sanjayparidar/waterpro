@@ -50,7 +50,7 @@ router.get("/update/:id", function(req, res){
 });
 
 
-router.get('/findwhere',function(err,result){
+router.post('/findwhere',function(req,res){
 	product.findWhere({category:req.body.category},function(err,result){
 		res.send(result)
 	});
