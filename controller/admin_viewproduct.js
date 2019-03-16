@@ -51,6 +51,9 @@ router.get("/update/:id", function(req, res){
 
 
 router.post('/findwhere',function(req,res){
+
+	console.log("hello")
+	console.log(req.body,"+++++++++++++++++++++++++++++")
 	product.findWhere({category:req.body.category},function(err,result){
 		res.send(result)
 	});
