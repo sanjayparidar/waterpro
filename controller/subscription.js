@@ -126,9 +126,9 @@ router.post("/",function(req,res){
 // { $and: [ { price: { $ne: 1.99 } }
     numberofbottle.findWhere({category:req.body.category},function(err,result){
          
-         var quntity=parseInt(req.body.Quentity)
+        //  var quntity=parseInt(req.body.Quentity)
       
-       if(result[0].Quentity >= quntity){
+       if(result[0].Quentity >= req.body.Quentity){
         console.log("+_+_+_+_+_+__+_+_+")
   add_cart.findWhere({$and:[{productid:req.body.productid},{userid:req.body.userid}]},function(err,result){
       console.log(result.length)
