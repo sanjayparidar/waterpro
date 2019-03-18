@@ -125,9 +125,11 @@ router.post("/",function(req,res){
 
 // { $and: [ { price: { $ne: 1.99 } }
     numberofbottle.findWhere({category:req.body.category},function(err,result){
-    
-       if(result[0].Quentity>=req.body.Quentity){
-     
+         
+         var quntity=parseInt(req.body.Quentity)
+      
+       if(result[0].Quentity >= quntity){
+        console.log("+_+_+_+_+_+__+_+_+")
   add_cart.findWhere({$and:[{productid:req.body.productid},{userid:req.body.userid}]},function(err,result){
       console.log(result.length)
     if(result.length>0){
@@ -150,7 +152,7 @@ router.post("/",function(req,res){
   });
 }
   else{
-    res.send(result)
+    res.send("out of stock")
   }
 });
 });
