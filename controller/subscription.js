@@ -123,8 +123,8 @@ var Mongodb=require("mongodb");
 router.post("/",function(req,res){
 console.log(req.body.userid)
 // { $and: [ { price: { $ne: 1.99 } }
-    admin_numberofbottle.findWhere({category:req.body.category},function(err,result){
-       if(result.Quentity==req.body.Quentity)
+    numberofbottle.findWhere({category:req.body.category},function(err,result){
+       if(result.Quentity>=req.body.Quentity)
     
   add_cart.findWhere({$and:[{productid:req.body.productid},{userid:req.body.userid}]},function(err,result){
       console.log(result.length)
