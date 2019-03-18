@@ -16,8 +16,8 @@ router.post("/",function(req,res){
 				 result[i].paymentid=req.body.paymentid
 				 for(let j=0; j<result2.length; j++){
 					 if(result[i].category=result2[j].category){
-                         numberofbottle.updateWhere({category:result[i].category},{Quntity:result2[j].Quntity-result[i].Quntity},function(err,result){
-							 res.send("success");
+                         numberofbottle.updateWhere({category:result[i].category},{Quentity:result2[j].Quentity-result[i].Quentity},function(err,result){
+							 
 						 });
 					 }
 
