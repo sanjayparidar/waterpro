@@ -126,7 +126,7 @@ router.post("/",function(req,res){
 // { $and: [ { price: { $ne: 1.99 } }
     numberofbottle.findWhere({category:req.body.category},function(err,result){
          
-        console.log(req.body,"++++++++++++++++++++++++++++")
+        req.body.Quentity=parseInt(req.body.Quentity)
       
        if(result[0].Quentity >= req.body.Quentity){
         console.log("+_+_+_+_+_+__+_+_+")
@@ -143,7 +143,7 @@ router.post("/",function(req,res){
         
     }else{
 
-        req.body.Quentity=1
+        
          add_cart.insert(req.body,function(err,result){
          res.send(result.ops);
 
