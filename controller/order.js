@@ -27,7 +27,7 @@ router.post("/",function(req,res){
 		
 		  orderhistory.insert(result,function(err,result){
 			
-		   add_cartremove({userid:req.body.userid},function(err,result){
+		   add_cart.remove({userid:req.body.userid},function(err,result){
 			res.send(result1)
               
 		  });
