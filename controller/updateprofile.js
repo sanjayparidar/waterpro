@@ -14,7 +14,9 @@ router.post("/",verifytoken.verifyToken,function(req,res){
 	        delete req.body.id;
 
 	        user.updateWhere({ _id : Mongo.ObjectId(id)}, req.body, function(err, result){
-		    res.send(result);
+			var data={ }
+			data.response="success";
+			res.send(data)
 	});
 		}
 		else{
