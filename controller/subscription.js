@@ -5,7 +5,7 @@ var product = require("../model/product");
 var promo=require("../model/promocode")
 var Mongodb=require("mongodb");
 var numberofbottle=require("../model/numberofbottle")
-
+  
 // router.get("/:userid/:productid",function(req,res){
  
 //    // add_cart.findWhere({productid:req.params.productid},{userid:req.params.userid},function(err,result){
@@ -129,7 +129,7 @@ router.post("/",function(req,res){
         req.body.Quentity=parseInt(req.body.Quentity)
       
        if(result[0].Quentity >= req.body.Quentity){
-        console.log("+_+_+_+_+_+__+_+_+")
+          
   add_cart.findWhere({$and:[{productid:req.body.productid},{userid:req.body.userid}]},function(err,result){
       console.log(result.length)
     if(result.length>0){
