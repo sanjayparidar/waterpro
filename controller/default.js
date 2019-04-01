@@ -13,7 +13,8 @@ router.use("/viewproduct",require("./viewproduct"));
 router.use("/order",require("./order"));
 router.use('/contect',require("./contect"));
 router.use('/orderhistory',require("./orderhistory"));
-router.use("/admin_numberofbottle",require("./admin_numberofbottle"))
+router.use("/admin_numberofbottle",require("./admin_numberofbottle"));
+router.use("/pdf",require("./pdf"));
 
 
 router.use("/adminpanel",require("./adminlogin"));

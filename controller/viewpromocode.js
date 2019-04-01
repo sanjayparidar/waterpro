@@ -38,17 +38,17 @@ router.get("/update/:id", function(req, res){
 });
 
 		
-router.get("/", function(req, res){
+// router.get("/", function(req, res){
 
-	promo.find(function(err, result){
-             res.send(result)
+// 	promo.find(function(err, result){
+//              res.send(result)
 			
-		// console.log(result);
-	});
-});		
+// 		// console.log(result);
+// 	});
+// });		
 
 router.post("/findpromo", function(req, res){
-         console.log("+_++++++++++")
+         
 	promo.findWhere({pcode:req.body.promocode},function(err, result){
              res.send(result)
 			
