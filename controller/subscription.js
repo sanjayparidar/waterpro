@@ -162,7 +162,7 @@ router.get("/:userid",function(req,res){
 //   console.log(req.params)
     add_cart.findWhere({userid:req.params.userid},function(err,result){
       console.log(result,"+++++++++++++++++++++_________________----------------------")
-    res.send(result)
+    res.send(JSON.stringify(result))
     
   });
 });
