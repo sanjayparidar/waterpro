@@ -163,7 +163,7 @@ router.get("/:userid",function(req,res){
     add_cart.findWhere({userid:req.params.userid},function(err,result){
       console.log(result,"+++++++++++++++++++++_________________----------------------")
     console.log(result)
-    res.status(200).json(JSON.stringify(result));
+    res.status(200).json(result);
 
     
   });
