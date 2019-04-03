@@ -221,6 +221,7 @@ router.post("/checkstock",function(req,res){
   var stcokQuentity=[ ]
 
   numberofbottle.findWhere({$or:[categoryarray]},function(err,result){
+    console.log(result,"_____+_+_+_+_+_+_+_+_+_+_+_+_+")
      for(let i=0; result.length>i ; i++){
       // var index= JSON.parse(categoryarray).indexOf(obj.category);
          var index= result.indexof(catrgory[i]);
