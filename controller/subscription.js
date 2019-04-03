@@ -235,6 +235,7 @@ router.post("/checkstock",function(req,res){
      var data={ }
        data.response=response;
        data.result=result; 
+       console.log(data,"238 console++++++++++++++++")
        res.send(data)
     });
 });
