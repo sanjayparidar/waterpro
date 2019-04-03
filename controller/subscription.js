@@ -205,6 +205,33 @@ router.post("/promo",function(req,res){
    });
 });
 
+router.post("/checkstock",function(req,res){
+  // { $or: [ { <expression1> }, { <expression2> }, ... , { <expressionN> } ] }
+  var category=req.body.category;
+       var cat={ };
+  var categoryarray=category.map(i=>{
+           cat.productid=i
+           return cat
+        });
+  var stcokQuentity=[ ]
+
+  numberofbottle.findWhere({$or:[categoryarray]},function(err,result){
+     for(let i=0; result.length>i ; i++){
+      // var index= JSON.parse(categoryarray).indexOf(obj.category);
+         var index= result.indexof(catrgory[i]);
+         if(result[index].Quentity>=Quentity[i]){
+          stcokQuentity[i]=result[index].Quentity
+         }else{
+           stcokQuentity[i]=result[index].Quentity
+           var response="out of stcok"
+         }
+
+     }  
+     var data={ }
+       data.response=response;
+       data.result=result; 
+    });
+});
 module.exports=router;
 
 
