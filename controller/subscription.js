@@ -209,6 +209,7 @@ router.post("/checkstock",function(req,res){
   // { $or: [ { <expression1> }, { <expression2> }, ... , { <expressionN> } ] }
   console.log("chekc out api is call fdsfsdfsfsdfsdfsfsfsd")
   var category=req.body.category;
+  console.log(category,"line 212")
        var cat={ };
   var categoryarray=category.map(i=>{
            cat.productid=i
