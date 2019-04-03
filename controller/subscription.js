@@ -211,10 +211,11 @@ router.post("/checkstock",function(req,res){
   var category=req.body.category;
   console.log(category,"line 212")
        var cat={ };
-  var categoryarray=category(i=>{
-           cat.productid=i
-           return cat
-        });
+       var categoryarray=[];
+  for(var i=0; category.length>0; i++){
+    categoryarray[i].cat.category=category[i]
+          
+  }
   var stcokQuentity=[ ]
 
   numberofbottle.findWhere({$or:[categoryarray]},function(err,result){
