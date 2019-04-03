@@ -221,25 +221,25 @@ router.post("/checkstock",function(req,res){
   var stcokQuentity=[ ]
   console.log(categoryarray)
 
-  numberofbottle.findWhere({$or:[categoryarray]},function(err,result){
-    console.log(result,"_____+_+_+_+_+_+_+_+_+_+_+_+_+")
-     for(let i=0; result.length>i ; i++){
-      // var index= JSON.parse(categoryarray).indexOf(obj.category);
-         var index= result.indexof(catrgory[i]);
-         if(result[index].Quentity>=Quentity[i]){
-          stcokQuentity[i]=result[index].Quentity
-         }else{
-           stcokQuentity[i]=result[index].Quentity
-           var response="out of stcok"
-         }
+  // numberofbottle.findWhere({$or:[categoryarray]},function(err,result){
+  //   console.log(result,"_____+_+_+_+_+_+_+_+_+_+_+_+_+")
+  //    for(let i=0; result.length>i ; i++){
+  //     // var index= JSON.parse(categoryarray).indexOf(obj.category);
+  //        var index= result.indexof(catrgory[i]);
+  //        if(result[index].Quentity>=Quentity[i]){
+  //         stcokQuentity[i]=result[index].Quentity
+  //        }else{
+  //          stcokQuentity[i]=result[index].Quentity
+  //          var response="out of stcok"
+  //        }
 
-     }  
-     var data={ }
-       data.response=response;
-       data.result=result; 
-       console.log(data,"238 console++++++++++++++++")
-       res.send(data)
-    });
+  //    }  
+  //    var data={ }
+  //      data.response=response;
+  //      data.result=result; 
+  //      console.log(data,"238 console++++++++++++++++")
+  //      res.send(data)
+  //   });
 });
 module.exports=router;
 
