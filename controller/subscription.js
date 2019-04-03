@@ -219,7 +219,7 @@ router.post("/checkstock",function(req,res){
           
   }
   var stcokQuentity=[ ]
-  console.log(category)
+  console.log(categoryarray)
 
   numberofbottle.findWhere({$or:[categoryarray]},function(err,result){
     console.log(result,"_____+_+_+_+_+_+_+_+_+_+_+_+_+")
