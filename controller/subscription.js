@@ -211,7 +211,7 @@ router.post("/checkstock",function(req,res){
   var category=req.body.category;
   console.log(category,"line 212")
        var cat={ };
-  var categoryarray=category.map(i=>{
+  var categoryarray=category(i=>{
            cat.productid=i
            return cat
         });
