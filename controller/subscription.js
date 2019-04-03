@@ -207,6 +207,7 @@ router.post("/promo",function(req,res){
 
 router.post("/checkstock",function(req,res){
   // { $or: [ { <expression1> }, { <expression2> }, ... , { <expressionN> } ] }
+  console.log("chekc out api is call fdsfsdfsfsdfsdfsfsfsd")
   var category=req.body.category;
        var cat={ };
   var categoryarray=category.map(i=>{
