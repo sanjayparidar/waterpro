@@ -210,10 +210,12 @@ router.post("/checkstock",function(req,res){
   console.log("chekc out api is call fdsfsdfsfsdfsdfsfsfsd")
   var category=req.body.category;
   console.log(category,"line 212")
-       var cat={ };
+      
        var categoryarray=[];
   for(var i=0; category.length>0; i++){
-    categoryarray[i].cat.category=category[i]
+    var cat={ };
+    cat.category=category[i]
+    categoryarray[i]=cat
           
   }
   var stcokQuentity=[ ]
