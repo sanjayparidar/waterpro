@@ -220,7 +220,7 @@ router.post("/checkstock",function(req,res){
   }
   var stcokQuentity=[ ]
   
-
+  console.log(categoryarray)
   numberofbottle.findWhere({$or:[categoryarray]},function(err,result){
     console.log(result,"_____+_+_+_+_+_+_+_+_+_+_+_+_+")
      for(let i=0; result.length>i ; i++){
