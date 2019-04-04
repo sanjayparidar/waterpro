@@ -33,7 +33,7 @@ var category=JSON.parse(req.body.category);
 var avelabelQuentity=JSON.parse(req.body.avelabelQuentity);
 var Quentity=JSON.parse(req.body.Quentity);
 console.log(category,avelabelQuentity,Quentity)
-// var order={"userid":req.body.userid,"paymentid":req.body.paymentid,"total":req.body.total,"discounttotal":req.body.discounttotal}
+var order={"userid":req.body.userid,"paymentid":req.body.paymentid,"total":req.body.total,"discounttotal":req.body.discounttotal}
    add_cart.findWhere({userid:req.body.userid},function(err,result){
 	   
 	   order.insert(order,function(err,result1){
@@ -64,5 +64,6 @@ router.post("/vieworder",function(req,res){
 		res.send(result)
 	});
 });
+
 
 module.exports=router;
