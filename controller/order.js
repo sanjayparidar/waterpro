@@ -7,35 +7,49 @@ var add_cart=require("../model/add_cart");
 var orderhistory=require("../model/orderhistory");
 router.post("/",function(req,res){
 
-	add_cart.findWhere({userid:req.body.userid},function(err,result){
-		    numberofbottle.find(function(err,result2){
-
-		req.body.discounttotal=result[0].discounttotal				
-	      order.insert(req.body,function(err,result1){
-		     for(let i=0; i<result.length; i++){
-				 result[i].paymentid=req.body.paymentid
-				 for(let j=0; j<result2.length; j++){
-					 if(result[i].category=result2[j].category){
-                         numberofbottle.updateWhere({category:result[i].category},{Quentity:result2[j].Quentity-result[i].Quentity},function(err,result){
+// 	add_cart.findWhere({userid:req.body.userid},function(err,result){
+// 		    numberofbottle.find(function(err,result2){
+// 		req.body.discounttotal=result[0].discounttotal				
+// 	      order.insert(req.body,function(err,result1){
+// 		     for(let i=0; i<result.length; i++){
+// 				 result[i].paymentid=req.body.paymentid
+// 				 for(let j=0; j<result2.length; j++){
+// 					 if(result[i].category=result2[j].category){
+//                          numberofbottle.updateWhere({category:result[i].category},{Quentity:result2[j].Quentity-result[i].Quentity},function(err,result){
 							 
-						 });
-					 }
+// 						 });
+// 					 }
+// 				 }				 
+// 			 } 		
+// 		  orderhistory.insert(result,function(err,result){			
+// 		   add_cart.remove({userid:req.body.userid},function(err,result){
+// 			res.send(result1.ops)             
+// 		  });
+// 		});	     
+// 	  });
+//    });	
+// });
+var category=JSON.parse(req.body.category);
+var avelabelQuentity=JSON.parse(req.body.avelabelQuentity);
+var Quentity=JSON.parse(req.body.Quentity);
+var order={"userid":req.body.userid,"paymentid":req.body.paymentid,"total":req.body.total,"discounttotal":req.body.discounttotal}
+   add_cart.findWhere({userid:req.body.userid},function(err,result){
+	   
+	   order.insert(order,function(err,result1){
+                for(let i=0; i<result.length; i++ ){
+					result[i].paymentid=req.body.paymentid
+					numberofbottle.updateWhere({category:category[i]},{Quentity:avelabelQuentity[i]-Quentity[i]},function(err,result2){
 
-				 }
-				 
-			 } 
-		
-		  orderhistory.insert(result,function(err,result){
-			
-		   add_cart.remove({userid:req.body.userid},function(err,result){
-			res.send(result1.ops)
-              
-		  });
-		});
-	     
-	  });
-   });	
-});
+					});
+				}
+				orderhistory.insert(result,function(err,result3){
+					add_cart.remove({userid:req.body.userid},function(err,result4){
+						res.send(result1.ops)
+
+					});
+				});
+	   });
+   });
 });
 
 router.post('/viewallorder',function(req,res){
