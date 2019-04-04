@@ -36,7 +36,7 @@ console.log(category,avelabelQuentity,Quentity)
 var order={"userid":req.body.userid,"paymentid":req.body.paymentid,"total":req.body.total,"discounttotal":req.body.discounttotal}
  console.log(order ,"console 37 ++++++++++++++++++++++++++++_______________")
 add_cart.findWhere({userid:req.body.userid},function(err,result){
-	   
+	   console.log("helo")
 	   order.insert(order ,function(err,result1){
                 for(let i=0; i<result.length; i++ ){
 					result[i].paymentid=req.body.paymentid
