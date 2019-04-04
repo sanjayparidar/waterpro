@@ -209,6 +209,7 @@ router.post("/checkstock",function(req,res){
   // { $or: [ { <expression1> }, { <expression2> }, ... , { <expressionN> } ] }
   console.log("chekc out api is call fdsfsdfsfsdfsdfsfsfsd")
   var category=JSON.parse(req.body.category)
+  var Quentity=JSON.parse(req.body.Quentity)
   console.log(category,"line 212")
       
        var categoryarray=[];
