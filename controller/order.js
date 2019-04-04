@@ -32,7 +32,8 @@ router.post("/",function(req,res){
 var category=JSON.parse(req.body.category);
 var avelabelQuentity=JSON.parse(req.body.avelabelQuentity);
 var Quentity=JSON.parse(req.body.Quentity);
-var order={"userid":req.body.userid,"paymentid":req.body.paymentid,"total":req.body.total,"discounttotal":req.body.discounttotal}
+console.log(category,avelabelQuentity,Quentity)
+// var order={"userid":req.body.userid,"paymentid":req.body.paymentid,"total":req.body.total,"discounttotal":req.body.discounttotal}
    add_cart.findWhere({userid:req.body.userid},function(err,result){
 	   
 	   order.insert(order,function(err,result1){
