@@ -219,7 +219,7 @@ router.post("/checkstock",function(req,res){
     categoryarray[i]=cat
           
   }
-  var stcokQuentity=[ ]
+ 
   
   console.log(categoryarray)
   numberofbottle.findWhere({$or:categoryarray},function(err,result){
@@ -227,19 +227,22 @@ router.post("/checkstock",function(req,res){
      for(let i=0; result.length>i ; i++){
       // var index= JSON.parse(categoryarray).indexOf(obj.category);
     var index = result.findIndex(x => x.category === category[i]);
-             console.log(index,"(((((((((((((((((((((((())))))))))))))))))))))))))")
-        //  var index= result.indexof(categoryarray[i]);
+             
+         var stockstatus=[ ];
+         var stcokQuentity=[ ]
          if(result[index].Quentity>=Quentity[i]){
           stcokQuentity[i]=result[index].Quentity
+          stockstatus[i]="in stock"
          }else{
            stcokQuentity[i]=result[index].Quentity
-           var response="out of stcok"
+           var response="out of stock"
          }
 
      }  
-     var data={ }
+       var data={ }
        data.response=response;
-       data.result=result; 
+       data.stockstatus=stockstatus; 
+       data.stcokQuentity=stcokQuentity;
        console.log(data,"238 console++++++++++++++++")
        res.send(data)
     });
