@@ -239,6 +239,13 @@ router.post("/checkstock",function(req,res){
          }
 
      }  
+      
+         var stockindex= stockstatus.indexOf("out of stock");
+         if(stockindex==-1){
+           var response="in stock"
+         }else{
+           var response ="out of stock"
+         }
        var data={ }
        data.response=response;
        data.stockstatus=stockstatus; 
