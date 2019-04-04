@@ -225,7 +225,7 @@ router.post("/checkstock",function(req,res){
     console.log(result,"_____+_+_+_+_+_+_+_+_+_+_+_+_+")
      for(let i=0; result.length>i ; i++){
       // var index= JSON.parse(categoryarray).indexOf(obj.category);
-      index = result.indexof(x => x.category == categoryarray[i]);
+      index = result.findIndex(x => x.category === categoryarray[i]);
              console.log(index,"(((((((((((((((((((((((())))))))))))))))))))))))))")
         //  var index= result.indexof(categoryarray[i]);
          if(result[index].Quentity>=Quentity[i]){
