@@ -29,6 +29,7 @@ router.post("/",function(req,res){
 // 	  });
 //    });	
 // });
+var hello='hello'
 var category=JSON.parse(req.body.category);
 var avelabelQuentity=JSON.parse(req.body.avelabelQuentity);
 var Quentity=JSON.parse(req.body.Quentity);
@@ -37,7 +38,7 @@ var order={"userid":req.body.userid,"paymentid":req.body.paymentid,"total":req.b
  console.log(order ,"console 37 ++++++++++++++++++++++++++++_______________")
 add_cart.findWhere({userid:req.body.userid},function(err,result){
 	   console.log("helo")
-	   order.insert( {"h":"h"} ,function(err,result1){
+	   order.insert( {hello} ,function(err,result1){
                 for(let i=0; i<result.length; i++ ){
 					result[i].paymentid=req.body.paymentid
 					numberofbottle.updateWhere({category:category[i]},{Quentity:avelabelQuentity[i]-Quentity[i]},function(err,result2){
