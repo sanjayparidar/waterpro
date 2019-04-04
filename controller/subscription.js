@@ -219,7 +219,8 @@ router.post("/checkstock",function(req,res){
     categoryarray[i]=cat
           
   }
- 
+  var stockstatus=[ ];
+  var stcokQuentity=[ ];
   
   console.log(categoryarray)
   numberofbottle.findWhere({$or:categoryarray},function(err,result){
@@ -228,8 +229,7 @@ router.post("/checkstock",function(req,res){
       // var index= JSON.parse(categoryarray).indexOf(obj.category);
     var index = result.findIndex(x => x.category === category[i]);
              
-         var stockstatus=[ ];
-         var stcokQuentity=[ ]
+         
          if(result[index].Quentity>=Quentity[i]){
           stcokQuentity[i]=result[index].Quentity
           stockstatus[i]="in stock"
