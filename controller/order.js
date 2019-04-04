@@ -34,9 +34,9 @@ var category=JSON.parse(req.body.category);
 var avelabelQuentity=JSON.parse(req.body.avelabelQuentity);
 var Quentity=JSON.parse(req.body.Quentity);
 console.log(category,avelabelQuentity,Quentity)
-var order={"userid":req.body.userid,"paymentid":req.body.paymentid,"total":req.body.total,"discounttotal":req.body.discounttotal}
+var order1={"userid":req.body.userid,"paymentid":req.body.paymentid,"total":req.body.total,"discounttotal":req.body.discounttotal}
 
- console.log(order ,"console 37 ++++++++++++++++++++++++++++_______________")
+ console.log(order1 ,"console 37 ++++++++++++++++++++++++++++_______________")
 add_cart.findWhere({userid:req.body.userid},function(err,result){
 	   console.log("helo")
 	   order.insert( req.body ,function(err,result1){
