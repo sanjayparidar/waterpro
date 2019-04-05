@@ -4,7 +4,7 @@ var bulkorder=require("../model/bulkorder");
 router.post('/',function(req,res){
     bulkorder.insert(req.body,function(err,result){
        var response="sucess"
-        res.send(result)   
+        res.send(result.ops)   
     })
 });
 
