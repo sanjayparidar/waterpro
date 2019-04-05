@@ -12,7 +12,7 @@ router.post("/",function(req,res){
             var obj={ }
             obj.category=category[i]
             obj.Quentity=Quentity[i]
-            obj.paymentid=paymentid
+            obj.paymentid=result[0].paymentid
             array.push(obj)
         }
         res.send(array)
