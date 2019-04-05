@@ -1,6 +1,6 @@
 var express=require("express");
 var router=express.Router();
-order=require("../model/order");
+var order=require("../model/order");
 
 router.post("/",function(req,res){
     order.findWhere({userid:req.body.userid},{paymentid:req.body.paymentid},function(err,result){

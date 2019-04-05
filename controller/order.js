@@ -80,7 +80,7 @@ var Quentity=JSON.parse(req.body.Quentity);
 	  })
 });
 
-router.post('/viewallorder',function(req,res){
+router.get('/viewallorder',function(req,res){
 	order.find(function(err,result){
         res.send(result)
 	});
