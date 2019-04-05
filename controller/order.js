@@ -38,11 +38,21 @@ var order1={"userid":req.body.userid,"paymentid":req.body.paymentid,"total":req.
 
  console.log(order1 ,"console 37 ++++++++++++++++++++++++++++_______________")
 add_cart.findWhere({userid:req.body.userid},function(err,result){
-	   console.log("helo")
+	   console.log("helllo")
+	   if(result.length==0){
+		   var result = [ ]
+           for(var i=0; i<category.length; i++){
+			   result[i].paymentid=req.body.paymentid
+			   result[i].Quentity=req.body.Quentity[i]
+			   result[i].userid=req.body.userid
+			   result[i].productid=req.body.productid[i]
+			   
+		   }
+	   }
 	   order.insert(order1,function(err,result1){
                 for(let i=0; i<result.length; i++ ){
 					result[i].paymentid=req.body.paymentid
-					result[i].Quentity=req.body.Quentity
+					result[i].Quentity=req.body.Quentity[i]
 					numberofbottle.updateWhere({category:category[i]},{Quentity:avelabelQuentity[i]-Quentity[i]},function(err,result2){
 
 					});

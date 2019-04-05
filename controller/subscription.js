@@ -111,7 +111,7 @@ var numberofbottle=require("../model/numberofbottle")
 //           return res
 //         });
     
-//       add_cart.updateWhere({$and:[{userid:"5c726548cae3e00017beda90"},{$or:product}]},req.body,function(err,result){
+      // add_cart.updateWhere({$and:[{userid:"5c726548cae3e00017beda90"},{$or:product}]},req.body,function(err,result){
 //           res.send(result)
           
 //       });
