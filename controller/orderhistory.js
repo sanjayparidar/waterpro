@@ -10,9 +10,10 @@ router.post("/",function(req,res){
         var array=[ ]
         for( var i=0; i<category.length; i++){
             var obj={ }
-        array[i].obj.category=category[i]
-        arrya[i].obj.Quentity=Quentity[i]
-        array[i].obj.paymentid=paymentid
+            obj.category=category[i]
+            obj.Quentity=Quentity[i]
+            obj.paymentid=paymentid
+            array.push(obj)
         }
         res.send(array)
         // res.send(result)
