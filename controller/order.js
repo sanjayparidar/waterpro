@@ -65,7 +65,7 @@ var Quentity=JSON.parse(req.body.Quentity);
 // 				});
 // 	   });
 //    });
-
+         req.body.category=category
       order.insert(req.body,function(err,result){
 		  for(let i=0; i<category.length; i++){
 			numberofbottle.updateWhere({category:category[i]},{Quentity:avelabelQuentity[i]-Quentity[i]},function(err,result2){
