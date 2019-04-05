@@ -9,9 +9,10 @@ router.post("/",function(req,res){
         var  Quentity=JSON.parse(result[0].Quentity);
         var array=[ ]
         for( var i=0; i<category.length; i++){
-        array[i].category=category[i]
-        arrya[i].Quentity=Quentity[i]
-        array[i].paymentid=paymentid
+            var obj={ }
+        array[i].obj.category=category[i]
+        arrya[i].obj.Quentity=Quentity[i]
+        array[i].obj.paymentid=paymentid
         }
         res.send(array)
         // res.send(result)
