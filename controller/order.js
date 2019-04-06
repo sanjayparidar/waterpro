@@ -5,6 +5,8 @@ var numberofbottle=require("../model/numberofbottle");
 var order = require("../model/order");
 var add_cart=require("../model/add_cart");
 var orderhistory=require("../model/orderhistory");
+
+
 router.post("/",function(req,res){
 
 // 	add_cart.findWhere({userid:req.body.userid},function(err,result){
@@ -71,8 +73,9 @@ var Quentity=JSON.parse(req.body.Quentity);
 		  for(let i=0; i<category.length; i++){
 			numberofbottle.updateWhere({category:category[i]},{Quentity:avelabelQuentity[i]-Quentity[i]},function(err,result2){
 				add_cart.remove({userid:req.body.userid},function(err,result){
-                var data={}
+                var data ={ }
 				data.response="success"
+				data.result=result
 			
 				res.send(data)
 				})
