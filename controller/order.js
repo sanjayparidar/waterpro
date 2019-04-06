@@ -71,8 +71,9 @@ var Quentity=JSON.parse(req.body.Quentity);
 		  for(let i=0; i<category.length; i++){
 			numberofbottle.updateWhere({category:category[i]},{Quentity:avelabelQuentity[i]-Quentity[i]},function(err,result2){
 				add_cart.remove({userid:req.body.userid},function(err,result){
-                   var data={ }
-				data.response="success"
+                   var data = { };
+				data.response="success";
+				console.log(data)
 				res.send(data)
 				})
 				
