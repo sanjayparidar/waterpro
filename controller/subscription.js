@@ -124,24 +124,15 @@ var numberofbottle=require("../model/numberofbottle")
 router.post("/",function(req,res){
 
 // { $and: [ { price: { $ne: 1.99 } }
-    numberofbottle.findWhere({category:req.body.category},function(err,result){
-         
-        req.body.Quentity=parseInt(req.body.Quentity)
+   
       
-       if(result[0].Quentity >= req.body.Quentity){
+       
           
   add_cart.findWhere({$and:[{productid:req.body.productid},{userid:req.body.userid}]},function(err,result){
       console.log(result.length)
     if(result.length>0){
-
-        
-        add_cart.updateWhere({$and:[{productid:req.body.productid},{userid:req.body.userid}]},req.body,function(err,result){
-        add_cart.findWhere({userid:req.body.userid},function(err,result){
-          res.send(result)
-        });
-   });     
-        
-    }else{
+         res.send(result) 
+        }else{
 
         
          add_cart.insert(req.body,function(err,result){
@@ -150,12 +141,9 @@ router.post("/",function(req,res){
        });
     }
   });
-}
-  else{
-    res.send("out of stock")
-  }
+
 });
-});
+
 
 router.get("/:userid",function(req,res){
   
