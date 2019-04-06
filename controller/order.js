@@ -29,7 +29,8 @@ router.post("/",function(req,res){
 // 	  });
 //    });	
 // });
-var hello='hello'
+
+
 var category=JSON.parse(req.body.category);
 var avelabelQuentity=JSON.parse(req.body.avelabelQuentity);
 var Quentity=JSON.parse(req.body.Quentity);
@@ -70,7 +71,7 @@ var Quentity=JSON.parse(req.body.Quentity);
 		  for(let i=0; i<category.length; i++){
 			numberofbottle.updateWhere({category:category[i]},{Quentity:avelabelQuentity[i]-Quentity[i]},function(err,result2){
 				add_cart.remove({userid:req.body.userid},function(err,result){
-                    data={ }
+                   var data={ }
 				data.response="success"
 				res.send(data)
 				})
