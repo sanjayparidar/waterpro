@@ -72,16 +72,17 @@ var Quentity=JSON.parse(req.body.Quentity);
       order.insert(req.body,function(err,result){
 		  for(let i=0; i<category.length; i++){
 			numberofbottle.updateWhere({category:category[i]},{Quentity:avelabelQuentity[i]-Quentity[i]},function(err,result2){
-				add_cart.remove({userid:req.body.userid},function(err,result){
-                var data ={ }
-				data.response="success"
-				data.result=result
-			
-				res.send(data)
-				})
+				
 				
 			});  
 		  }
+		  add_cart.remove({userid:req.body.userid},function(err,result){
+			var data ={ }
+			data.response="success"
+			
+		
+			res.send(data)
+			})
 	  })
 });
 
