@@ -128,7 +128,7 @@ router.post("/",function(req,res){
          
         req.body.Quentity=parseInt(req.body.Quentity)
       
-     
+      console.log("hello")
           
   add_cart.findWhere({$and:[{productid:req.body.productid},{userid:req.body.userid}]},function(err,result){
       console.log(result.length)
