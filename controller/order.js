@@ -69,7 +69,8 @@ var Quentity=JSON.parse(req.body.Quentity);
 // 	   });
 //    });
 		 console.log('hello')
-		 
+		 req.body.date = ("0"+new Date().getDate()).slice(-2)+'-'+("0"+(new Date().getMonth()+1)).slice(-2)+'-'+("0"+new Date().getFullYear()).slice(-4);
+		 req.body.time=("0"+new Date().getHours()).slice(-2)+':'+("0"+new Date().getMinutes()).slice(-2);
       order.insert(req.body,function(err,result){
 		  for(let i=0; i<category.length; i++){
 			numberofbottle.updateWhere({category:category[i]},{Quentity:avelabelQuentity[i]-Quentity[i]},function(err,result2){
