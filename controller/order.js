@@ -1,5 +1,6 @@
 var express=require("express");
 var router=express.Router()
+var datetime = require('node-datetime');
 var numberofbottle=require("../model/numberofbottle");
 
 var order = require("../model/order");
@@ -69,11 +70,11 @@ var Quentity=JSON.parse(req.body.Quentity);
 // 	   });
 //    });
 		 console.log('hello')
-		 var today = ("0"+new Date().getDate()).slice(-2)+'-'+("0"+(new Date().getMonth()+1)).slice(-2)+'-'+("0"+new Date().getFullYear()).slice(-4);
-		 var time=("0"+new Date().getHours()).slice(-2)+':'+("0"+new Date().getMinutes()).slice(-2)
-		   console.log(today)
-		   console.log(time)
-		 console.log(time,"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+		 var dt = datetime.create();
+         var formatted = dt.format('m/d/Y H:M:S');
+		 console.log(formatted,"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+		 req.body.date=formatted
+		 console.log(req.body)
       order.insert(req.body,function(err,result){
 		  for(let i=0; i<category.length; i++){
 			numberofbottle.updateWhere({category:category[i]},{Quentity:avelabelQuentity[i]-Quentity[i]},function(err,result2){
