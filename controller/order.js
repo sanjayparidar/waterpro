@@ -71,7 +71,7 @@ var Quentity=JSON.parse(req.body.Quentity);
 //    });
 		 console.log('hello')
 		 var dt = datetime.create();
-		 dt.setTimezone("Asia/Calcutta");
+		 
 		 var formatted = dt.format('m/d/Y H:M:S');
 		 
 		 console.log(formatted,"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
