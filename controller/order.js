@@ -70,7 +70,7 @@ var Quentity=JSON.parse(req.body.Quentity);
 //    });
 		 console.log('hello')
 		 req.body.date = ("0"+new Date().getDate()).slice(-2)+'-'+("0"+(new Date().getMonth()+1)).slice(-2)+'-'+("0"+new Date().getFullYear()).slice(-4);
-		 var time=("0"+new Date().getHours()).slice(-2)+':'+("0"+new Date().getMinutes()).slice(-2);
+		 var time=("0"+new Date().getHours()).slice(-2)+':'+("0"+new Date().getMinutes()).slice(-2)
 		 console.log(time,"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
       order.insert(req.body,function(err,result){
 		  for(let i=0; i<category.length; i++){
