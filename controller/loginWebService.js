@@ -48,7 +48,7 @@ user.findWhere( { $and: [ { mobile:m  }, { password:p } ] } , function(err, resu
               res.status(400).json("err");
           else{
               data.token=token
-
+              var token="Bearer"+" "+token;
 				      res.send(data)}
           });
            }else{
