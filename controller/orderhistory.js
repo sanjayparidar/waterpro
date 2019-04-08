@@ -8,6 +8,7 @@ router.post("/",function(req,res){
     order.findWhere({ _id : Mongo.ObjectId(req.body.id)},function(err,result){
         var category=JSON.parse(result[0].category)
         var  Quentity=JSON.parse(result[0].Quentity);
+        var price=JSON.parse(result[0].price)
         var array=[ ]
         for( var i=0; i<category.length; i++){
             var obj={ }
