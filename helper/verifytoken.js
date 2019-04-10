@@ -7,7 +7,7 @@ var jwt=require("jsonwebtoken");
      req.token=token;
      next();
     }else{
-    	res.status(403);
+    	res.send(status(403));
     	
     }
  
