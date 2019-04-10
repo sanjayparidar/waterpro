@@ -5,10 +5,10 @@ var jwt=require("jsonwebtoken");
     if(typeof bearerHeader!=='undefined'){
      var token=bearerHeader.split(' ')[1];
      req.token=token;
-
+     next();
     }else{
     	res.status(403);
     	
     }
-   next();
+ 
 }

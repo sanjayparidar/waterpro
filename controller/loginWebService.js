@@ -76,7 +76,7 @@ user.findWhere( { $and: [ { mobile:m  }, { password:p } ] } , function(err, resu
           
            	data.response="please submit otp";
            	data.result=result;
-           	 jwt.sign({user:"abhi"},"suab",(err,token)=>{
+           	 jwt.sign({user:req.body},"suab",(err,token)=>{
           if(err)
               res.status(400).json("err");
           else{

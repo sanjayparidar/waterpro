@@ -58,7 +58,7 @@ router.post("/",
               var data={ }
              data.response="success";
              data.result=result.ops
-             jwt.sign({user:"abhi"},"suab",(err,token)=>{
+             jwt.sign({user:req.body},"suab",(err,token)=>{
           if(err)
               res.status(400).json("err");
           else{
