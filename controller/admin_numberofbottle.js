@@ -4,7 +4,9 @@ var numberofbottle=require("../model/numberofbottle");
 
 router.post("/",function(req,res){
     numberofbottle.insert(req.body,function(err,result){
-        res.send("success")
+        var data={ }
+        data.response="success"
+        res.send(data)
     });
 });
 
