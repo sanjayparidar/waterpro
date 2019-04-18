@@ -24,5 +24,26 @@ router.post("/",function(req,res){
     });
 });
 
+router.post('/viewallorder',function(req,res){
+    order.find(function(req,res){
+        var category=JSON.parse(result[0].category)
+        var  Quentity=JSON.parse(result[0].Quentity);
+        var price=JSON.parse(result[0].price);
+        var array=[ ]
+        for( var i=0; i<category.length; i++){
+            var obj={ }
+            obj.category=category[i]
+            obj.Quentity=Quentity[i]
+            obj.paymentid=result[0].paymentid
+            obj.price=price[i]
+            obj.orderid=result[0].orderid
+            array.push(obj)
+        }
+        res.send(array)
+        // res.send(result)
+    });
+    })
+})
+
 
 module.exports=router;
