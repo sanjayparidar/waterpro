@@ -24,7 +24,7 @@ router.post("/",function(req,res){
     });
 });
 
-router.post('/viewallorder',function(req,res){
+router.get('/viewallorder',function(req,res){
     order.find(function(req,res){
         var category=JSON.parse(result[0].category)
         var  Quentity=JSON.parse(result[0].Quentity);
@@ -43,7 +43,7 @@ router.post('/viewallorder',function(req,res){
         // res.send(result)
     });
     })
-})
+
 
 
 module.exports=router;
