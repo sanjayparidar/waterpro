@@ -28,7 +28,7 @@ router.get("/",function(req,res){
 
 
 router.post('/edit',function(req,res){
-    numberofbottle.updateWhere({_id:mongo.ObjectID(req.body.id)},req.body,function(err,result){
+    numberofbottle.updateWhere({_id:mongo.ObjectID(req.body.id)},req.body.Quentity,function(err,result){
         var data={ };
         data.response="success"
         res.send(data)
