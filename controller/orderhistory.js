@@ -25,7 +25,7 @@ router.post("/",function(req,res){
 });
 
 router.get('/viewallorder',function(req,res){
-    order.find(function(req,res){
+    order.find(function(err,result){
         var category=JSON.parse(result[0].category)
         var  Quentity=JSON.parse(result[0].Quentity);
         var price=JSON.parse(result[0].price);
