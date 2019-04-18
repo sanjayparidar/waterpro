@@ -29,7 +29,7 @@ router.get("/",function(req,res){
 router.post('/edit',function(req,res){
      console.log(req.body,"_+_+_+_+_+_+_++__+_+_+_+_+___+_+_+_")
      console.log(req.body.id)
-    numberofbottle.updateWhere({_id:Mongo.ObjectId(req.body.id)},req.body.Quentity,function(err,result){
+    numberofbottle.updateWhere({_id:Mongo.ObjectId(req.body.id)},{Quentity:req.body.Quentity},function(err,result){
         console.log(result)
         var data={ };
         data.response="success"
