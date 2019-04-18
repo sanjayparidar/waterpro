@@ -1,8 +1,7 @@
 var express=require("express");
 var router=express.Router();
 var numberofbottle=require("../model/numberofbottle");
-var mongo=require('mongodb')
-
+var Mongo = require("mongodb");
 router.post("/",function(req,res){
     numberofbottle.findWhere({category:req.body.category},function(err,result){
     if(result.length==0){
@@ -29,7 +28,7 @@ router.get("/",function(req,res){
 
 router.post('/edit',function(req,res){
      console.log(req.body,"_+_+_+_+_+_+_++__+_+_+_+_+___+_+_+_")
-    numberofbottle.updateWhere({_id:mongo.ObjectID(req.body.id)},req.body.Quentity,function(err,result){
+    numberofbottle.updateWhere( {_id : Mongo.ObjectId(id)},req.body.Quentity,function(err,result){
         console.log(result)
         var data={ };
         data.response="success"
