@@ -26,8 +26,11 @@ router.post("/", function(req, res){
            res.send(data)
 		}
 		else
-		{
-			res.send(result[0])
+		{  
+			var data={ };
+			data.response="success"
+			data.result=result[0];
+			res.send(data)
 		}
 	});
 
