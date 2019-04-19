@@ -18,21 +18,16 @@ router.post("/", function(req, res){
 	// console.log(req.body);
 	var u = req.body.username;
 	var p = req.body.password;
-	admin.findWhere({username : u}, function(err, result){
+	admin.findWhere({username : u , password:p}, function(err, result){
 		if(result.length==0)
 		{
-			res.send("this is username and password incorrect")
+			var data={ };
+			data.response="this user name and password is incorrect"
+           res.send(data)
 		}
 		else
 		{
-			if(result[0].password==p)
-			{
-				res.send(result[0])
-			}
-			else
-			{
-				res.send("this user password is incorrect")
-			}
+			res.send(result[0])
 		}
 	});
 
