@@ -178,7 +178,7 @@ router.post("/clearcart",function(req,res){
    });
 });
 
-router.post("/promo",function(req,res){
+  router.post("/promo",function(req,res){
    add_cart.findWhere({userid:req.body.userid},function(err,result){
     
         var product=result.map(i=>{
