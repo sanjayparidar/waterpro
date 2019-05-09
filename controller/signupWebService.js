@@ -63,7 +63,7 @@ router.post("/",
               res.status(400).json("err");
           else{
             var token="Bearer"+" "+token;
-
+                data.otpstatus="success"
               data.token=token
 
               res.send(data)}

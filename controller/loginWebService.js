@@ -21,7 +21,7 @@ router.post("/",
    if (!errors.isEmpty()) {
     return res.status(422).json({ errors: errors.array() });
 
-  }
+  }else{
     
      
 
@@ -97,7 +97,7 @@ user.findWhere( { $and: [ { mobile:m  }, { password:p } ] } , function(err, resu
  }
 }
 	});
-
+  }
 	
 });
 				
