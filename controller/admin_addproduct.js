@@ -62,7 +62,9 @@
 	}
 	product.update({_id : Mongo.ObjectId(id)}, req.body, function(err, result){
 		// res.redirect("/admin_viewproduct");
-		res.send("product update");
+		var data={ }
+		data.response="success"
+		res.send(data);
 	});
 });
 
