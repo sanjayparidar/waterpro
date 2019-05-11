@@ -48,7 +48,7 @@
 	delete req.body.id;
    console.log(req.body,"11 april +++++++++++__________+_+_+_+_+_+_+_+")
 	
-	if(req.file.image!=null)
+	if(req.files.image!=null)
 	{
 	   console.log("+++++++++++++++++++++")
 		var file = req.files.image;
