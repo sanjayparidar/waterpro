@@ -48,7 +48,7 @@
 	delete req.body.id;
    console.log(req.body,"11 april +++++++++++__________+_+_+_+_+_+_+_+")
 	console.log(req.files.image,"11 april ______________________________________________")
-	if(req.files.image!=null)
+	if(req.files)
 	{
 	   console.log("+++++++++++++++++++++")
 		var file = req.files.image;
@@ -59,6 +59,8 @@
 		// var oldfilepath = path.resolve("public/product_image/"+image);
 		// fs.unlinkSync(oldfilepath);
 
+	}else{
+		delete req.body.image
 	}
 	product.update({_id : Mongo.ObjectId(id)}, req.body, function(err, result){
 		// res.redirect("/admin_viewproduct");
