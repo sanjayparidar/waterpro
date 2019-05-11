@@ -26,7 +26,9 @@ router.get("/delete/:id",function(req,res){
 
     	});
         product.remove({_id:Mongodb.ObjectId(req.params.id)},function(err,result){
-    	res.redirect("/admin_viewproduct");
+		var data={ }
+		data.response="success"
+		res.send(data)
     	
     });
 });
