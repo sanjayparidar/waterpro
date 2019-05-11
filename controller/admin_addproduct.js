@@ -47,7 +47,7 @@
 	var id = req.body.id;
 	delete req.body.id;
    console.log(req.body,"11 april +++++++++++__________+_+_+_+_+_+_+_+")
-	console.log(req.files.image,"11 april ______________________________________________")
+	
 	if(req.files)
 	{
 	   console.log("+++++++++++++++++++++")
