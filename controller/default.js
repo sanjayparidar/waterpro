@@ -27,6 +27,11 @@ router.use("/addpromo",require("./addpromocode"));
 router.use("/viewpromo",require("./viewpromocode"));
 
 
+router.use("/",function(req,res){
+	res.send({'status':500,'message':'you are not authorised for this'});
+});
+
+
 // router.use("/",require("./signup"));
 // router.use("/login",require("./login"));
 
