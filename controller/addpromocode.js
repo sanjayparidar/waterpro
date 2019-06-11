@@ -17,7 +17,9 @@ router.post("/update", function(req, res){
 	delete req.body.id;
 	
     promo.update({_id : mongo.ObjectId(id)}, req.body, function(err, result){
-		res.send("product update");
+		var data={ }
+		data.response="success"
+		res.send(data)
 	});
 });
 
