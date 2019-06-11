@@ -2,6 +2,7 @@ var express=require("express");
 var router=express.Router();
 var promo=require("../model/promocode");
 var express=require("express");
+var mongo=require("mongodb")
 router.post("/",function(req,res){
 	console.log(req.body)
     promo.insert(req.body,function(err,result){
