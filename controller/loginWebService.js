@@ -29,7 +29,7 @@ router.post("/",
    var m =  parseInt(req.body.mobile);
   var p = req.body.password;
 
-  console.log(req.body,"31 line ++++++______++++++ssssssssssssss")
+  
 user.findWhere( { $and: [ { mobile:m  }, { password:p } ] } , function(err, result){
 		var data={ };
 		if(result.length==0) // rusername incorrect
@@ -88,8 +88,7 @@ user.findWhere( { $and: [ { mobile:m  }, { password:p } ] } , function(err, resu
               res.send(data)}
           }); 
         });
-          
-       }
+      }
 
      }
 

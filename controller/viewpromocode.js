@@ -31,7 +31,7 @@ router.get("/update/:id", function(req, res){
 	console.log(req.params);
 	var id = req.params.id;
 	
-	product.findWhere({ _id : Mongodb.ObjectId(req.params.id) }, function(err, result){
+	promo.findWhere({ _id : Mongodb.ObjectId(req.params.id) }, function(err, result){
 		res.send(result[0]);
 		
 	});
